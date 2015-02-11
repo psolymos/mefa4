@@ -75,8 +75,14 @@ setGeneric("groupMeans", function(object, ...) standardGeneric("groupMeans"))
 
 setMethod("groupMeans", "sparseMatrix", function(object, MARGIN, by, na.rm = FALSE, ...) {
     x <- groupSums(object, MARGIN, by, na.rm, ...)
-    n <- groupSums(as(!is.na(object), "sparseMatrix"), MARGIN, by, na.rm, ...)
-    out <- x / n
+    if (any(is.na(x))) {
+        n <- groupSums(as(!is.na(object), "sparseMatrix"), MARGIN, by, na.rm, ...)
+        out <- x / n
+    } else {
+        n <- rowSums(as(factor(by, levels=unique(by)), "sparseMatrix"))
+        out <- if (MARGIN == 1)
+            x / n else t(t(x) / n)
+    }
     as(out, "sparseMatrix")
 })
 setMethod("groupMeans", "matrix", function(object, MARGIN, by, na.rm = FALSE, ...) {
