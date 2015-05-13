@@ -1,5 +1,10 @@
 MEFA4 VERSIONS
 
+Version 0.3-2 -- May 13, 2015
+    * New function: r2rmd to parse an ordinary R source file
+      and return and Rmd file by trimming double hashes and wrapping
+      code chunks.
+
 Version 0.3-1 -- Nov 7, 2013
     * stack method for Mefa objects:
       column labels for taxa tables fixed.
