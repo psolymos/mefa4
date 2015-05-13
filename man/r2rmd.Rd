@@ -50,8 +50,8 @@ Peter Solymos <solymos@ualberta.ca>
 }
 \examples{
 \dontrun{
-r2rmd(system.file("r2rmd_example.R", package="mefa4"), 
-    out=NULL, extra=", eval=FALSE")
+(r2rmd(system.file("r2rmd_example.R", package="mefa4"), 
+    out=NULL, extra=", eval=FALSE"))
 }
 }
 \keyword{ manip }
