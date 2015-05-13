@@ -18,6 +18,11 @@ review.
 
 Stable version at CRAN: http://cran.r-project.org/package=mefa4
 
+Install CRAN version as:
+```{r}
+install.packages("mefa4")
+```
+
 Get devel version as:
 ```{r}
 library(devtools)
