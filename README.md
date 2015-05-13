@@ -1,5 +1,4 @@
-mefa4: multivariate data handling with S4 classes and sparse matrices
-====
+# mefa4: multivariate data handling with S4 classes and sparse matrices
 
 This is the imported version of the mefa4 R package from the [mefa project on R-Forge](https://r-forge.r-project.org/projects/mefa/) (rev 619).
 
@@ -19,8 +18,13 @@ review.
 
 Stable version at CRAN: http://cran.r-project.org/package=mefa4
 
-References
-----------
+Get devel version as:
+```{r}
+library(devtools)
+install_github("psolymos/mefa4")
+```
+
+# References
 
 Solymos P. 2008. mefa: an R package for handling and reporting count data. _Community Ecology_ **9**, 125-127.
 
