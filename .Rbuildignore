@@ -1,4 +1,4 @@
-.gitignore
+extras
 .git*
 .DS_Store
 .*~
