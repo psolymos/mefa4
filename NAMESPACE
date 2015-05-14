@@ -8,7 +8,7 @@ exportMethods(xtab, samp, taxa, dim, dimnames, "dimnames<-",
     "xtab<-", "samp<-", "taxa<-", "[",
     groupSums, groupMeans,
     show, mbind, mbind2, stack)
-importFrom(Matrix, rBind, cBind)
+importFrom(Matrix, rBind, cBind, drop0, Matrix)
 importClassesFrom(Matrix, dgCMatrix, CsparseMatrix,
     dsparseMatrix, generalMatrix, dMatrix,
     sparseMatrix, compMatrix, Matrix)
@@ -16,4 +16,4 @@ importMethodsFrom(Matrix, colSums, rowSums,
     colMeans, rowMeans, t,
     dim, dimnames, "dimnames<-")
 importFrom(utils, stack)
-importFrom(methods)
+import(methods)
