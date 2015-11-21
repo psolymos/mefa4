@@ -6,66 +6,66 @@ Raw Dataset of Bird Point Counts
 }
 \description{
 A data set of bird point counts collected by the Alberta
-Biodiversity Monitoring Institute (ABMI, \url{http://www.abmi.ca}).
+Biodiversity Monitoring Institute (ABMI, http://www.abmi.ca).
 }
 \usage{data(abmibirds)}
 \format{
   A data frame with 59341 observations on the following 21 variables.
   \describe{
-    \item{\code{Rotation}}{a factor. Reference describing when data was 
+    \item{\code{Rotation}}{a factor. Reference describing when data was
       collected at a broad level.
       Code definition: Prototype = 2003--2006, Rotation 1 = 2007--2012}
-    \item{\code{ABMI.Site}}{a numeric vector. Reference number given to 
+    \item{\code{ABMI.Site}}{a numeric vector. Reference number given to
       each ABMI data collection site (1--1656).}
     \item{\code{Year}}{a numeric vector. Collection year.}
-    \item{\code{Field.Date}}{a factor. Day, month, and year data was 
+    \item{\code{Field.Date}}{a factor. Day, month, and year data was
       collected.}
-    \item{\code{Field.Crew.Members}}{a factor. Initials for the field 
+    \item{\code{Field.Crew.Members}}{a factor. Initials for the field
       technicians collecting the field data.}
-    \item{\code{Identification.Date}}{a factor. Day, month, and year 
+    \item{\code{Identification.Date}}{a factor. Day, month, and year
       data was analyzed by specialist.}
-    \item{\code{Identification.Analyst}}{a factor. Initials for the 
+    \item{\code{Identification.Analyst}}{a factor. Initials for the
       technicians/specialists identifying the specimens.}
-    \item{\code{Point.Count.Station}}{a numeric vector. Point count 
+    \item{\code{Point.Count.Station}}{a numeric vector. Point count
       station where recording was made: 9 stations were
       located around each ABMI site (1--9).}
-    \item{\code{Wind.Conditions}}{a factor. Estimate of wind conditions 
-      on a scale of 0--5. 
+    \item{\code{Wind.Conditions}}{a factor. Estimate of wind conditions
+      on a scale of 0--5.
       0 = no wind, 1 = calm, 2 = leaves rustling, 3 small branches
       moving, 4 = large branches moving, 5 = large branches moving and
       the tree is swaying}
-    \item{\code{Precipitation}}{a factor. Classification for precipitation 
+    \item{\code{Precipitation}}{a factor. Classification for precipitation
       conditions in 5 categories.
     Input value: Drizzle, Fog, Rain, Sleet, Snow, None}
-    \item{\code{Start.of.Point.Count}}{a factor. Time of day recording was 
+    \item{\code{Start.of.Point.Count}}{a factor. Time of day recording was
       started.
     Input value: 24 hour clock (hh:mm).}
-    \item{\code{End.of.Point.Count}}{a factor. Time of day recording was 
+    \item{\code{End.of.Point.Count}}{a factor. Time of day recording was
       finished. Input value: 24 hour clock (hh:mm).}
-    \item{\code{Common.Name}}{a factor. Common name of bird species detected 
+    \item{\code{Common.Name}}{a factor. Common name of bird species detected
       during point counts.}
-    \item{\code{Scientific.Name}}{a factor. Scientific name of bird species 
+    \item{\code{Scientific.Name}}{a factor. Scientific name of bird species
       detected during point count.}
-    \item{\code{Unique.Taxonomic.Identification.Number}}{a factor. Globally 
+    \item{\code{Unique.Taxonomic.Identification.Number}}{a factor. Globally
       unique identifier of bird species detected during point
       count. Unique taxonomic identifiers are generally taken from the
-      International Taxonomic Information System 
+      International Taxonomic Information System
       (ITIS; \url{http://www.itis.gov/}).}
-    \item{\code{Taxonomic.Resolution}}{a factor. Resolution to which bird 
+    \item{\code{Taxonomic.Resolution}}{a factor. Resolution to which bird
       species was identified (e.g. Family, Genus, Species etc.).}
-    \item{\code{Time.First.Detected}}{a factor. Approximate time the bird 
+    \item{\code{Time.First.Detected}}{a factor. Approximate time the bird
       analyst first detects a bird species from
 the recording; listed in 10-second intervals.}
-    \item{\code{Interval.1}}{a factor. First time interval of the 10-minute 
+    \item{\code{Interval.1}}{a factor. First time interval of the 10-minute
       point count (0--200 seconds)
       when bird species are detected and identified.}
-    \item{\code{Interval.2}}{a factor. Middle time interval of the 10-minute 
-      point count (201--400 seconds) when bird species are detected or 
+    \item{\code{Interval.2}}{a factor. Middle time interval of the 10-minute
+      point count (201--400 seconds) when bird species are detected or
       re-detected.}
-    \item{\code{Interval.3}}{a factor. Last time interval of the 10-minute 
-      point count (401--600 seconds) when bird species are detected or 
+    \item{\code{Interval.3}}{a factor. Last time interval of the 10-minute
+      point count (401--600 seconds) when bird species are detected or
       re-detected.}
-    \item{\code{Behaviour}}{a factor. Classification given to each species 
+    \item{\code{Behaviour}}{a factor. Classification given to each species
       detection (if possible).}
   }
 }
@@ -143,12 +143,12 @@ identified. Some possible reasons that identification was not possible include i
 sample collected and lack of field time.
 }
 \source{
-RAW_T26BreedingBirds28621.csv, \url{http://www.abmi.ca}
+RAW_T26BreedingBirds28621.csv, http://www.abmi.ca
 }
 \references{
 Raw breeding bird data (2004--2006 inclusive) from the Alberta Biodiversity Monitoring
 Institute was used, in whole or part, to create this product. More information on the Institute
-can be found at: \url{http://www.abmi.ca}
+can be found at: http://www.abmi.ca
 }
 \examples{
 data(abmibirds)
