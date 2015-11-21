@@ -17,3 +17,4 @@ importMethodsFrom(Matrix, colSums, rowSums,
     dim, dimnames, "dimnames<-")
 importFrom(utils, stack)
 import(methods)
+importFrom(stats, as.formula, terms)
