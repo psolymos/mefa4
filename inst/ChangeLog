@@ -1,6 +1,6 @@
 MEFA4 VERSIONS
 
-Version 0.3-2 -- May 13, 2015
+Version 0.3-2 -- Nov 21, 2015
     * New function: r2rmd to parse an ordinary R source file
       and return and Rmd file by trimming double hashes and wrapping
       code chunks.
@@ -27,7 +27,7 @@ Version 0.2-8 -- July 6, 2012
     * mbind2: inner set is based on x+y instead of left join x.
       Methods for matrix and sparse matrix classes, but not for
       Mefa where the sum is not trivial.
-    * nonDuplicated gained na.rm argument to handle 
+    * nonDuplicated gained na.rm argument to handle
       possible duplicates in row names.
 
 Version 0.2-7 -- May 2, 2012
@@ -80,7 +80,7 @@ Version 0.1-2 -- January 26, 2011
 Version 0.1-1 -- January 25, 2011
     * S4 classes working properly.
     * /tests dir added to pkg tree.
-    * Xtab class is redundant, 
+    * Xtab class is redundant,
       use dgCMatrix class instead.
     * A vignette with design decisions
       added, it also has the performance
