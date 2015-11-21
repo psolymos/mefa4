@@ -32,7 +32,7 @@ install_github("psolymos/mefa4")
 
 ### Build status for development version
 
-[![Build Status](https://travis-ci.org/psolymos/mefa4.svg?branch=master)](https://travis-ci.org/psolymos/mefa4)  [![Build status](https://ci.appveyor.com/api/projects/status/hc8dbxrim2nj3c1i/branch/master)](https://ci.appveyor.com/project/psolymos/mefa4/branch/master)
+[![Build Status](https://travis-ci.org/psolymos/mefa4.svg?branch=master)](https://travis-ci.org/psolymos/mefa4)
 
 ## Report a problem
 
