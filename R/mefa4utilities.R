@@ -31,11 +31,11 @@ function(x)
         x <- as(x$xtab, "dgCMatrix")
     if (inherits(x, "matrix"))
         x <- as(x, "dgCMatrix")
-    if (is.null(rownames(x)))
-        stop("missing row names")
-    if (is.null(colnames(x)))
-        stop("missing column names")
     if (inherits(x, "sparseMatrix")) {
+        if (is.null(rownames(x)))
+            stop("missing row names")
+        if (is.null(colnames(x)))
+            stop("missing column names")
         x <- as(x, "dgTMatrix")
         rows <- x@i + 1L
         cols <- x@j + 1L
