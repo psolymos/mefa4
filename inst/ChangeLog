@@ -4,6 +4,7 @@
 
     * nonDuplicated now used drop=FALSE to prevent 1-column
       inputs to loose their dimensions.
+    * New function: compare.sets to compare sets.
 
 ## Version 0.3-2 -- Nov 21, 2015
 

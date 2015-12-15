@@ -2,6 +2,7 @@
 \alias{nameAlnum}
 \alias{pasteDate}
 \alias{paste0date}
+\alias{compare.sets}
 \title{
 Utility functions, mostly for character manipulation
 }
@@ -13,10 +14,11 @@ pasteDate(..., sep = " ", collapse = NULL, sep.date = sep)
 paste0date(..., collapse = NULL)
 nameAlnum(x, capitalize=c("asis", "first", "none", "all", "mixed"), 
     collapse=" ")
+compare.sets(x, y)
 }
 \arguments{
-  \item{x}{
-a (character) vector.
+  \item{x, y}{
+vector. Caharacter for \code{nameAlnum}, any type for \code{compare.sets}.
 }
   \item{\dots}{
 one or more R objects, to be converted to character vectors.
@@ -40,6 +42,8 @@ uses lower case for the rest. Other options are self explanatory.
 }
 \value{
 Character vector.
+
+A matrix \code{compare.sets}.
 }
 \author{
 Peter Solymos <solymos@ualberta.ca>
@@ -56,6 +60,11 @@ data(abmibirds)
 x <- data.frame(Name=levels(abmibirds[["Common.Name"]]),
     NameAlnum=nameAlnum(levels(abmibirds[["Common.Name"]])))
 x[grep("'", x$Name),]
+
+## numeric vector
+compare.sets(1:10, 8:15)
+## factor with 'zombie' labels
+compare.sets(factor(1:10, levels=1:10), factor(8:15, levels=1:15))
 }
 \keyword{ manip }
 
