@@ -2,14 +2,14 @@
 
 ## Version 0.3-3 -- Nov 24, 2015
 
-    * nonDuplicated now used drop=FALSE to prevent 1-column
+    * nonDuplicated now uses drop=FALSE to prevent 1-column
       inputs to loose their dimensions.
     * New function: compare.sets to compare sets.
 
 ## Version 0.3-2 -- Nov 21, 2015
 
     * New function: r2rmd to parse an ordinary R source file
-      and return and Rmd file by trimming double hashes and wrapping
+      and return an Rmd file by trimming double hashes and wrapping
       code chunks.
     * Vignette removed from package, migrated to development
       site on GitHub.
