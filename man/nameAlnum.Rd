@@ -2,7 +2,9 @@
 \alias{nameAlnum}
 \alias{pasteDate}
 \alias{paste0date}
-\alias{compare.sets}
+\alias{compare_sets}
+\alias{find_max}
+\alias{find_min}
 \title{
 Utility functions, mostly for character manipulation
 }
@@ -14,11 +16,14 @@ pasteDate(..., sep = " ", collapse = NULL, sep.date = sep)
 paste0date(..., collapse = NULL)
 nameAlnum(x, capitalize=c("asis", "first", "none", "all", "mixed"), 
     collapse=" ")
-compare.sets(x, y)
+compare_sets(x, y)
+find_max(x)
+find_min(x)
 }
 \arguments{
   \item{x, y}{
-vector. Caharacter for \code{nameAlnum}, any type for \code{compare.sets}.
+caharacter for \code{nameAlnum}, any type for \code{compare_sets},
+matrix for \code{find_max} and \code{find_min}.
 }
   \item{\dots}{
 one or more R objects, to be converted to character vectors.
@@ -43,7 +48,9 @@ uses lower case for the rest. Other options are self explanatory.
 \value{
 Character vector.
 
-A matrix \code{compare.sets}.
+A matrix \code{compare_sets}.
+
+A data frame for \code{find_max} and \code{find_min}.
 }
 \author{
 Peter Solymos <solymos@ualberta.ca>
@@ -62,9 +69,15 @@ x <- data.frame(Name=levels(abmibirds[["Common.Name"]]),
 x[grep("'", x$Name),]
 
 ## numeric vector
-compare.sets(1:10, 8:15)
+compare_sets(1:10, 8:15)
 ## factor with 'zombie' labels
-compare.sets(factor(1:10, levels=1:10), factor(8:15, levels=1:15))
+compare_sets(factor(1:10, levels=1:10), factor(8:15, levels=1:15))
+
+(mat <- matrix(rnorm(10*5), 10, 5))
+(m <- find_max(mat))
+## column indices
+as.integer(m$index)
+find_min(mat)
 }
 \keyword{ manip }
 

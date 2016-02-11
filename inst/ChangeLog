@@ -4,7 +4,9 @@
 
     * nonDuplicated now uses drop=FALSE to prevent 1-column
       inputs to loose their dimensions.
-    * New function: compare.sets to compare sets.
+    * New function: compare_sets to compare sets.
+    * New function: find_max and find_min to find max/min index and 
+      value for rows of a matrix.
 
 ## Version 0.3-2 -- Nov 21, 2015
 
