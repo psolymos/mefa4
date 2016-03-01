@@ -18,3 +18,4 @@ importMethodsFrom(Matrix, colSums, rowSums,
 importFrom(utils, stack)
 import(methods)
 importFrom(stats, as.formula, terms)
+importFrom(pbapply, pbapply)
