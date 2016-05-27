@@ -1,5 +1,5 @@
-\name{%notin%}
-\alias{%notin%}
+\name{'%notin%'}
+\alias{'%notin%'}
 \title{
 Negated Value Matching
 }
