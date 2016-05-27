@@ -149,3 +149,5 @@ find_min <- function(x) {
     out$value <- -1 * out$value
     out
 }
+
+"%notin%" <- function(x, table) !(match(x, table, nomatch = 0) > 0)
