@@ -1,5 +1,9 @@
 # mefa4 package versions
 
+## Version 0.3-4 -- May 27, 2016
+
+    * New function: '%notin%', the negation of '%in%.
+
 ## Version 0.3-3 -- Feb 29, 2016
 
     * nonDuplicated now uses drop=FALSE to prevent 1-column
