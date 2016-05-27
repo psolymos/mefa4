@@ -1,5 +1,5 @@
-\name{'%notin%'}
-\alias{'%notin%'}
+\name{%notin%}
+\alias{%notin%}
 \title{
 Negated Value Matching
 }
@@ -9,7 +9,7 @@ which returns a logical vector indicating if there is a non-match or not
 for its left operand.
 }
 \usage{
-x %in% table
+\%notin\%(x, table)
 }
 \arguments{
   \item{x}{
