@@ -9,7 +9,7 @@ which returns a logical vector indicating if there is a non-match or not
 for its left operand.
 }
 \usage{
-\%notin\%(x, table)
+x \%notin\% table
 }
 \arguments{
   \item{x}{
@@ -34,4 +34,5 @@ All the opposite of what is written for \code{\link{\%in\%}}.
 sstr <- c("c","ab","B","bba","c",NA,"@","bla","a","Ba","\%")
 sstr[sstr \%notin\% c(letters, LETTERS)]
 }
-\keyword{ manip }
+\keyword{manip}
+\keyword{logic}
