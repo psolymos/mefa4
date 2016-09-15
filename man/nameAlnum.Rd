@@ -5,6 +5,7 @@
 \alias{compare_sets}
 \alias{find_max}
 \alias{find_min}
+\alias{normalizeNames}
 \title{
 Utility functions, mostly for character manipulation
 }
@@ -14,8 +15,10 @@ Utility functions, mostly for character manipulation.
 \usage{
 pasteDate(..., sep = " ", collapse = NULL, sep.date = sep)
 paste0date(..., collapse = NULL)
-nameAlnum(x, capitalize=c("asis", "first", "none", "all", "mixed"), 
+nameAlnum(x, capitalize=c("asis", "first", "none", "all", "mixed"),
     collapse=" ")
+normalizeNames(x, pattern = list(" "), replacement = list("_"),
+    alnum = FALSE, ...)
 compare_sets(x, y)
 find_max(x)
 find_min(x)
@@ -27,6 +30,8 @@ matrix for \code{find_max} and \code{find_min}.
 }
   \item{\dots}{
 one or more R objects, to be converted to character vectors.
+For \code{normalizeNames} it takes arguments passed to \code{nameAlnum}
+when \code{alnum = TRUE}.
 }
   \item{sep}{
 a character string to separate the terms.
@@ -44,9 +49,20 @@ character, which letter of each words should be capitalized.
 for the rest. \code{"first"} capitalizes first letter and
 uses lower case for the rest. Other options are self explanatory.
 }
+  \item{pattern}{
+a list of character vectors that are replaced.
+Must match argument \code{replacement}.
+}
+  \item{replacement}{
+a list of character vectors that are the replacements for \code{pattern}.
+Must match argument \code{pattern}.
+}
+  \item{alnum}{
+logical, if \code{nameAlnum} should be applied after replacement.
+}
 }
 \value{
-Character vector.
+Character vector with desired changes.
 
 A matrix \code{compare_sets}.
 
@@ -56,7 +72,7 @@ A data frame for \code{find_max} and \code{find_min}.
 Peter Solymos <solymos@ualberta.ca>
 }
 \seealso{
-\code{\link{paste}}, \code{\link{paste0}}, 
+\code{\link{paste}}, \code{\link{paste0}},
 \code{\link{strsplit}}, \code{\link{gsub}}
 }
 \examples{
@@ -67,6 +83,11 @@ data(abmibirds)
 x <- data.frame(Name=levels(abmibirds[["Common.Name"]]),
     NameAlnum=nameAlnum(levels(abmibirds[["Common.Name"]])))
 x[grep("'", x$Name),]
+
+z <- data.frame(Name=levels(abmibirds[["Common.Name"]]),
+    NameNormalized=normalizeNames(levels(abmibirds[["Common.Name"]]),
+        pattern=list("'", "-", " "), replacement=list("", "_", "_")))
+z[grepl("'", z$Name) & grepl("-", z$Name),]
 
 ## numeric vector
 compare_sets(1:10, 8:15)

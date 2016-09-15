@@ -40,14 +40,14 @@ function(x)
         rows <- x@i + 1L
         cols <- x@j + 1L
         y <- x@x
-        out <- data.frame(rows = factor(x@Dimnames[[1]][rows], 
-            levels=x@Dimnames[[1]]), 
-            cols = factor(x@Dimnames[[2]][cols], 
-            levels=x@Dimnames[[2]]), 
+        out <- data.frame(rows = factor(x@Dimnames[[1]][rows],
+            levels=x@Dimnames[[1]]),
+            cols = factor(x@Dimnames[[2]][cols],
+            levels=x@Dimnames[[2]]),
             value = y)
-    } else if (is.list(x) && all(sapply(x, function(z) 
+    } else if (is.list(x) && all(sapply(x, function(z)
         inherits(z, "sparseMatrix")))) {
-        if (!all(sapply(x[-1], function(z) 
+        if (!all(sapply(x[-1], function(z)
             identical(z@Dimnames, x[[1]]@Dimnames))))
             stop("dimnames of list elements must be identical")
         n <- length(x)
@@ -58,10 +58,10 @@ function(x)
             cols[[k]] <- X[[k]]@j + 1L
             y[[k]] <- X[[k]]@x
         }
-        out <- data.frame(rows = factor(x[[1]]@Dimnames[[1]][unlist(rows)], 
-            levels=x[[1]]@Dimnames[[1]]), 
-            cols = factor(x[[1]]@Dimnames[[2]][unlist(cols)], 
-            levels=x[[1]]@Dimnames[[2]]), 
+        out <- data.frame(rows = factor(x[[1]]@Dimnames[[1]][unlist(rows)],
+            levels=x[[1]]@Dimnames[[1]]),
+            cols = factor(x[[1]]@Dimnames[[2]][unlist(cols)],
+            levels=x[[1]]@Dimnames[[2]]),
             segm = as.factor(rep(names(x), sapply(y, length))),
             value = unlist(y))
     } else stop("object class not appropriate")
@@ -69,21 +69,21 @@ function(x)
 }
 
 ## atatch a time stamp to file names etc.
-pasteDate <- 
+pasteDate <-
 function(..., sep = " ", collapse = NULL, sep.date = sep)
 {
     out <- paste(..., sep = sep, collapse = collapse)
     paste(out, Sys.Date(), sep = sep.date)
 }
-paste0date <- 
+paste0date <-
 function(..., collapse = NULL)
 {
     paste0(paste0(..., collapse = collapse), Sys.Date())
 }
 
 ## clear up species names
-nameAlnum <- 
-function(x, capitalize=c("asis", "first", "none", "all", "mixed"), collapse=" ") 
+nameAlnum <-
+function(x, capitalize=c("asis", "first", "none", "all", "mixed"), collapse=" ")
 {
     capitalize <- match.arg(capitalize)
     .capwords <- function(x) {
@@ -97,13 +97,39 @@ function(x, capitalize=c("asis", "first", "none", "all", "mixed"), collapse=" ")
         capitalize <- "mixed"
     }
     f <- switch(capitalize,
-        "asis"=function(x) return(x), 
-        "mixed"=capwords, 
-        "none"=tolower, 
+        "asis"=function(x) return(x),
+        "mixed"=capwords,
+        "none"=tolower,
         "all"=toupper)
     sapply(x, function(z) {
         paste0(f(strsplit(gsub("[^[:alnum:] ]", "", z), " +")[[1]]), collapse=collapse)
     }, USE.NAMES = !is.null(names(x)))
+}
+
+normalizeNames <-
+function(x, pattern=list(" "), replacement=list("_"), alnum = FALSE, ...)
+{
+    if (!is.factor(x))
+        x <- as.character(x)
+    l0 <- if (is.factor(x))
+        levels(x) else unique(x)
+    l <- l0
+    if (length(pattern) != length(replacement))
+        stop("pattern and replacement lengths must be equal")
+    pattern <- as.list(pattern)
+    replacement <- as.list(replacement)
+    for (i in seq_len(length(pattern))) {
+        l <- gsub(as.character(pattern[[i]]), as.character(replacement[[i]]),
+            l, fixed=TRUE)
+    }
+    if (alnum)
+        l <- nameAlnum(l, ...)
+    if (is.factor(x)) {
+        levels(x) <- l
+    } else {
+        x <- l[match(x, l0)]
+    }
+    x
 }
 
 ## compare sets
@@ -129,9 +155,9 @@ compare_sets <- function(x, y) {
 
 ## find max/min index and value for rows of a matrix
 find_max <- function(x) {
-    if (is.null(dim(x))) 
+    if (is.null(dim(x)))
         stop("x must be matrix like object with dim attribute")
-    if (is.null(colnames(x))) 
+    if (is.null(colnames(x)))
         colnames(x) <- paste0("X", seq_len(ncol(x)))
     tmp <- pbapply(x, 1, function(z) {
         i <- which.max(z)

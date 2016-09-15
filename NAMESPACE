@@ -1,6 +1,6 @@
 export(Xtab, Mefa,
     nonDuplicated, Melt,
-    pasteDate, paste0date, nameAlnum,
+    pasteDate, paste0date, nameAlnum, normalizeNames,
     r2rmd, compare_sets, find_max, find_min)
 export('%notin%')
 exportClasses(Mefa, stcs, mefa, MefaMatrix, MefaDataFrame)
@@ -13,7 +13,7 @@ importFrom(Matrix, rBind, cBind, drop0, Matrix)
 importClassesFrom(Matrix, dgCMatrix, CsparseMatrix,
     dsparseMatrix, generalMatrix, dMatrix,
     sparseMatrix, compMatrix, Matrix)
-importMethodsFrom(Matrix, colSums, rowSums, 
+importMethodsFrom(Matrix, colSums, rowSums,
     colMeans, rowMeans, t,
     dim, dimnames, "dimnames<-")
 importFrom(utils, stack)
