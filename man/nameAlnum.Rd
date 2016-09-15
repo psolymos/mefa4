@@ -46,7 +46,7 @@ a character string to separate the terms from the data itself.
   \item{capitalize}{
 character, which letter of each words should be capitalized.
 \code{"mixed"} capitalizes the first letter and case is unchanged
-for the rest. \code{"first"} capitalizes first letter and
+for the rest (CamelCase). \code{"first"} capitalizes first letter and
 uses lower case for the rest. Other options are self explanatory.
 }
   \item{pattern}{
