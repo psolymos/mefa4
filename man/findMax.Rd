@@ -2,7 +2,7 @@
 \alias{compare_sets}
 \alias{find_max}
 \alias{find_min}
-\alies{reclass}
+\alias{reclass}
 \title{
 Utility functions for factors and compositional data
 }
