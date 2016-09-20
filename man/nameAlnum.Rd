@@ -2,9 +2,6 @@
 \alias{nameAlnum}
 \alias{pasteDate}
 \alias{paste0date}
-\alias{compare_sets}
-\alias{find_max}
-\alias{find_min}
 \alias{normalizeNames}
 \title{
 Utility functions, mostly for character manipulation
@@ -19,14 +16,10 @@ nameAlnum(x, capitalize=c("asis", "first", "none", "all", "mixed"),
     collapse=" ")
 normalizeNames(x, pattern = list(" "), replacement = list("_"),
     alnum = FALSE, ...)
-compare_sets(x, y)
-find_max(x)
-find_min(x)
 }
 \arguments{
-  \item{x, y}{
-caharacter for \code{nameAlnum}, any type for \code{compare_sets},
-matrix for \code{find_max} and \code{find_min}.
+  \item{x}{
+caharacter.
 }
   \item{\dots}{
 one or more R objects, to be converted to character vectors.
@@ -63,10 +56,6 @@ logical, if \code{nameAlnum} should be applied after replacement.
 }
 \value{
 Character vector with desired changes.
-
-A matrix \code{compare_sets}.
-
-A data frame for \code{find_max} and \code{find_min}.
 }
 \author{
 Peter Solymos <solymos@ualberta.ca>
@@ -88,17 +77,6 @@ z <- data.frame(Name=levels(abmibirds[["Common.Name"]]),
     NameNormalized=normalizeNames(levels(abmibirds[["Common.Name"]]),
         pattern=list("'", "-", " "), replacement=list("", "_", "_")))
 z[grepl("'", z$Name) & grepl("-", z$Name),]
-
-## numeric vector
-compare_sets(1:10, 8:15)
-## factor with 'zombie' labels
-compare_sets(factor(1:10, levels=1:10), factor(8:15, levels=1:15))
-
-(mat <- matrix(rnorm(10*5), 10, 5))
-(m <- find_max(mat))
-## column indices
-as.integer(m$index)
-find_min(mat)
 }
 \keyword{ manip }
 
