@@ -13,7 +13,7 @@ Utility functions for factors and compositional data.
 compare_sets(x, y)
 find_max(x)
 find_min(x)
-reclass(x, map)
+reclass(x, map, all = FALSE)
 }
 \arguments{
   \item{x, y}{
@@ -24,6 +24,10 @@ a factor for \code{reclass}.
   \item{map}{
 a reclassification matrix with 2 columns (1st: original levels,
 2nd: output levels mapped to original levels).
+}
+  \item{all}{
+logical, whether all levels from mapping matrix should be
+applied on the return object.
 }
 }
 \value{
@@ -54,9 +58,11 @@ find_min(mat)
 
 map <- cbind(c("a","b","c","d","e","f","g"),
              c("A","B","B","C","D","D","E"))
-x <- factor(sample(map[1:6,1], 100, replace=TRUE), levels=map[,1])
+#x <- factor(sample(map[1:6,1], 100, replace=TRUE), levels=map[,1])
+x <- as.factor(sample(map[1:6,1], 100, replace=TRUE))
 x[2] <- NA
-table(x, reclass(x, map), useNA="always")
+table(x, reclass(x, map, all = FALSE), useNA="always")
+table(x, reclass(x, map, all = TRUE), useNA="always")
 
 }
 \keyword{ manip }
