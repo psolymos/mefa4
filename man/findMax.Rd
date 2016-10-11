@@ -3,6 +3,7 @@
 \alias{find_max}
 \alias{find_min}
 \alias{reclass}
+\alias{redistribute}
 \title{
 Utility functions for factors and compositional data
 }
@@ -14,11 +15,12 @@ compare_sets(x, y)
 find_max(x)
 find_min(x)
 reclass(x, map, all = FALSE)
+redistribute(x, source, target = NULL)
 }
 \arguments{
   \item{x, y}{
 any type for \code{compare_sets},
-matrix for \code{find_max} and \code{find_min},
+matrix for \code{find_max}, \code{find_min}, and \code{redistribute},
 a factor for \code{reclass}.
 }
   \item{map}{
@@ -29,6 +31,12 @@ a reclassification matrix with 2 columns (1st: original levels,
 logical, whether all levels from mapping matrix should be
 applied on the return object.
 }
+  \item{source}{
+numeric or character, single column index for input matrix \code{x}.
+}
+  \item{target}{
+numeric or character, column index or indices for input matrix \code{x}.
+}
 }
 \value{
 A matrix \code{compare_sets}.
@@ -36,6 +44,9 @@ A matrix \code{compare_sets}.
 A data frame for \code{find_max} and \code{find_min}.
 
 A reclassified factor for \code{reclass}.
+
+A matrix for \code{redistribute} where the source column values are
+redistributed among the target columns proportionally.
 }
 \author{
 Peter Solymos <solymos@ualberta.ca>
@@ -63,6 +74,12 @@ x <- as.factor(sample(map[1:6,1], 100, replace=TRUE))
 x[2] <- NA
 table(x, reclass(x, map, all = FALSE), useNA="always")
 table(x, reclass(x, map, all = TRUE), useNA="always")
+
+(mat2 <- exp(mat) / rowSums(exp(mat)))
+(rmat2 <- redistribute(mat2, source = 1, target = 2:4))
+colMeans(mat2)
+colMeans(rmat2)
+stopifnot(abs(sum(mat2) - sum(rmat2)) < 10^-6)
 
 }
 \keyword{ manip }

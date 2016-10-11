@@ -3,7 +3,8 @@
 ## Version 0.3-4 -- May 27, 2016
 
 * New functions: '%notin%', the negation of '%in%;
-  reclass for reclassifying factors.
+  reclass for reclassifying factors;
+  redistribute: for redistributing values in a matrix.
 
 ## Version 0.3-3 -- Feb 29, 2016
 

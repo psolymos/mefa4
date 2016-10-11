@@ -1,7 +1,8 @@
 export(Xtab, Mefa,
     nonDuplicated, Melt,
     pasteDate, paste0date, nameAlnum, normalizeNames,
-    r2rmd, compare_sets, find_max, find_min, reclass)
+    r2rmd, compare_sets, find_max, find_min,
+    reclass, redistribute)
 export('%notin%')
 exportClasses(Mefa, stcs, mefa, MefaMatrix, MefaDataFrame)
 #    sparseMatrixList
