@@ -1,4 +1,4 @@
-citHeader("To cite mefa in publications use:")
+citHeader("To cite mefa4 in publications use:")
 
 citEntry(entry = "Article",
   title        = "Processing Ecological Data in {R} with the {mefa} Package",
