@@ -2,7 +2,7 @@
 
 ## Version 0.3-4 -- Oct 12, 2016
 
-* New functions: `'%notin%'`, the negation of '%in%;
+* New functions: `'%notin%'`, the negation of `'%in%'`;
   `reclass` for reclassifying factors;
   `redistribute` for redistributing values in a matrix.
 * `inst/CITATION` file updated.
@@ -81,16 +81,16 @@
 * Typos fixed in vignette and help pages.
 * 1x1 dim issues fixed again using `drop=FALSE`
   at many places (`Mefa`, `<-`, `[`, `mbind`).
-* typo corrected in mbind for Mefa objects that
+* typo corrected in `mbind` for Mefa objects that
   left `TAXAPART` temp variable in result.
-* samp/taxa table handling in `mbind` for Mefa objects
+* `@samp`/`@taxa` table handling in `mbind` for Mefa objects
   is revised, not using default `merge(..., all=TRUE)`.
 * `Xtab`: lhs must be numeric.
 
 ## Version 0.2-2 -- May 13, 2011
 
 * Allowing for 0 and 1 row/col Mefa objects (`'xtab<-'` and `'['`).
-* nonDuplicated finds y in data frame and patent frame first.
+* `nonDuplicated` finds y in data frame and patent frame first.
 
 ## Version 0.2-1 -- February 14, 2011
 
@@ -104,7 +104,7 @@
 ## Version 0.1-2 -- January 26, 2011
 
 * `nonDuplicated` function added.
-* segmented `Xtab` output implemnted
+* segmented `Xtab` output implemented
   as list of sparse matrices.
 
 ## Version 0.1-1 -- January 25, 2011
@@ -116,7 +116,7 @@
 * A vignette with design decisions
   added, it also has the performance
   comparison.
-* mbind method for binding matrices
+* `mbind` method for binding matrices
   added with a 'left join' implementation.
 * Rd files added, needs proofreading.
 
