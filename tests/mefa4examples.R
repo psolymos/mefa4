@@ -8,7 +8,7 @@ library(mefa4)
 ## run examples with \dontrun sections
 
 help_pages <- c("abmibirds",
-    "findMax",
+    "find_max",
     "groupSums", "mbind", "Mefa",
     "Melt",
     "nameAlnum", "nonDuplicated",
