@@ -6,14 +6,14 @@
 [![Windows build status](https://ci.appveyor.com/api/projects/status/1tc542dlqitdfkbo?svg=true)](https://ci.appveyor.com/project/psolymos/mefa4)
 [![Code coverage status](https://codecov.io/gh/psolymos/mefa4/branch/master/graph/badge.svg)](https://codecov.io/gh/psolymos/mefa4)
 
-This is the imported version of the mefa4 R package from the [mefa project on R-Forge](https://r-forge.r-project.org/projects/mefa/) (rev 619).
-
 An S4 update of the mefa package using sparse matrices for enhanced efficiency.
 Sparse array-like objects are supported via lists of sparse matrices.
 
 * Main functions: `Xtab`, `Mefa`.
 * Accessor and replacement functions: `xtab`, `samp`, `taxa`.
 * Methods: `mbind`, `groupSums`, `groupMeans`.
+
+See tutorial with design decisions and performance comparisons ([Rmd](https://github.com/psolymos/mefa4/blob/master/extras/mefa4.Rmd), [PDF](https://github.com/psolymos/mefa4/raw/master/extras/mefa4.pdf))
 
 ## Versions
 
@@ -31,6 +31,8 @@ install_github("psolymos/mefa4")
 ```
 
 User visible changes are listed in the [NEWS](https://github.com/psolymos/mefa4/blob/master/NEWS.md) file.
+
+Previously hosted at [R-Forge](https://r-forge.r-project.org/projects/mefa/) (until rev 619).
 
 ## Report a problem
 
