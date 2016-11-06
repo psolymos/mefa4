@@ -1,5 +1,9 @@
 # User-visible changes in the mefa4 R package
 
+## Version 0.3-5 -- Nov 5, 2016
+
+*
+
 ## Version 0.3-4 -- Oct 12, 2016
 
 * New functions: `'%notin%'`, the negation of `'%in%'`;
