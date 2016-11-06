@@ -3,6 +3,7 @@
 [![CRAN version](http://www.r-pkg.org/badges/version/mefa4)](http://cran.rstudio.com/web/packages/mefa4/index.html)
 [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/grand-total/mefa4)](http://cran.rstudio.com/web/packages/mefa4/index.html)
 [![Linux build Status](https://travis-ci.org/psolymos/mefa4.svg?branch=master)](https://travis-ci.org/psolymos/mefa4)
+[![Windows build status](https://ci.appveyor.com/api/projects/status/1tc542dlqitdfkbo?svg=true)](https://ci.appveyor.com/project/psolymos/mefa4)
 [![Code coverage status](https://codecov.io/gh/psolymos/mefa4/branch/master/graph/badge.svg)](https://codecov.io/gh/psolymos/mefa4)
 
 This is the imported version of the mefa4 R package from the [mefa project on R-Forge](https://r-forge.r-project.org/projects/mefa/) (rev 619).
