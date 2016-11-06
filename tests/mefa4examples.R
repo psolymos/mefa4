@@ -1,8 +1,27 @@
+#devtools::install_github("psolymos/mefa4")
 ## examples
 
 ## load library
 library(mefa)
 library(mefa4)
+
+## run examples with \dontrun sections
+
+help_pages <- c("abmibirds",
+    "findMax",
+    "groupSums", "mbind", "Mefa",
+    "Melt",
+    "nameAlnum", "nonDuplicated",
+    "notin", "r2rmd",
+    "samp", "Xtab")
+
+for (i in help_pages) {
+    cat("\n\n---------- mefa4 example:", i, "----------\n\n")
+    eval(parse(text=paste0("example(", i,
+        ", package = 'mefa4', run.dontrun = TRUE)")))
+}
+
+
 ## create input data
 x <- data.frame(
     sample = paste("Sample", c(1,1,2,2,3,4), sep="."),
