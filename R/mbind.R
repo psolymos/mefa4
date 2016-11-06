@@ -1,116 +1,6 @@
-## TODO: mbind for matrix could use sparse matrix code
-## check for necessity of [,,drop=FALSE] in mbind for 1x cases
-## check problem with merge for samp/taxa
-
-## groupSums and groupMeans
-
-setGeneric("groupSums", function(object, ...) standardGeneric("groupSums"))
-
-## MARGIN indicates what to group (1: group rows, 2: group cols)
-setMethod("groupSums", "matrix", function(object, MARGIN, by, na.rm = FALSE, ...) {
-    if (any(is.na(by)))
-        stop("'NA' not allowed in 'by'")
-    if (any(is.na(object)) && !na.rm)
-        stop("'NA' found in 'object'")
-    if (!(MARGIN %in% 1:2))
-        stop("'MARGIN' must be in 1:2")
-    if (length(MARGIN) != 1)
-        stop("MARGIN = 1:2 not yet implemented")
-    if (length(by) != dim(object)[MARGIN])
-        stop("Non conforming 'object', 'MARGIN' and 'by'")
-    mm <- as(factor(by, levels=unique(by)), "sparseMatrix")
-    rownames(mm) <- unique(by)
-    object <- as(object, "sparseMatrix")
-    if (na.rm)
-        object[is.na(object)] <- 0
-    if (MARGIN == 2) {
-        out <- t(mm %*% t(object))
-    } else {
-        out <- mm %*% object
-    }
-    as.matrix(out)
-})
-setMethod("groupSums", "sparseMatrix", function(object, MARGIN, by, na.rm = FALSE, ...) {
-    if (any(is.na(by)))
-        stop("'NA' not allowed in 'by'")
-    if (any(is.na(object)) && !na.rm)
-        stop("'NA' found in 'object'")
-    if (!(MARGIN %in% 1:2))
-        stop("'MARGIN' must be in 1:2")
-    if (length(MARGIN) != 1)
-        stop("MARGIN = 1:2 not yet implemented")
-    if (length(by) != dim(object)[MARGIN])
-        stop("Non conforming 'object', 'MARGIN' and 'by'")
-    mm <- as(factor(by, levels=unique(by)), "sparseMatrix")
-    rownames(mm) <- unique(by)
-    if (na.rm)
-        object[is.na(object)] <- 0
-    if (MARGIN == 2) {
-        out <- t(mm %*% t(object))
-    } else {
-        out <- mm %*% object
-    }
-    out
-})
-## replace is a replacement object for the affected non xtab slot (samp, taxa)
-setMethod("groupSums", "Mefa", function(object, MARGIN, by, replace, na.rm = FALSE, ...) {
-    x <- groupSums(object@xtab, MARGIN, by, na.rm, ...)
-    if (missing(replace))
-        replace <- NULL
-    JOIN <- object@join
-    if (MARGIN == 2) {
-#        if (is.null(object@samp) && is.null(replace))
-#            JOIN <- "inner"
-        new("Mefa", xtab = x, samp = object@samp,
-            taxa = replace, join = JOIN)
-    } else {
-#        if (is.null(object@taxa) && is.null(replace))
-#            JOIN <- "inner"
-        new("Mefa", xtab = x, samp = replace,
-            taxa = object@taxa, join = JOIN)
-    }
-})
-
-setGeneric("groupMeans", function(object, ...) standardGeneric("groupMeans"))
-
-setMethod("groupMeans", "sparseMatrix", function(object, MARGIN, by, na.rm = FALSE, ...) {
-    x <- groupSums(object, MARGIN, by, na.rm, ...)
-    if (any(is.na(x))) {
-        n <- groupSums(as(!is.na(object), "sparseMatrix"), MARGIN, by, na.rm, ...)
-        out <- x / n
-    } else {
-        n <- rowSums(as(factor(by, levels=unique(by)), "sparseMatrix"))
-        out <- if (MARGIN == 1)
-            x / n else t(t(x) / n)
-    }
-    as(out, "sparseMatrix")
-})
-setMethod("groupMeans", "matrix", function(object, MARGIN, by, na.rm = FALSE, ...) {
-    as.matrix(groupMeans(as(object, "sparseMatrix"), MARGIN, by, na.rm, ...))
-})
-setMethod("groupMeans", "Mefa", function(object, MARGIN, by, replace, na.rm = FALSE, ...) {
-    x <- groupMeans(as(object, "sparseMatrix"), MARGIN, by, na.rm, ...)
-    if (missing(replace))
-        replace <- NULL
-    JOIN <- object@join
-    if (MARGIN == 2) {
-#        if (is.null(object@samp) && is.null(replace))
-#            JOIN <- "inner"
-        new("Mefa", xtab = x, samp = object@samp,
-            taxa = replace, join = JOIN)
-    } else {
-#        if (is.null(object@taxa) && is.null(replace))
-#            JOIN <- "inner"
-        new("Mefa", xtab = x, samp = replace,
-            taxa = object@taxa, join = JOIN)
-    }
-})
-
-## mbind: joining 2 Mefa objects
-
 setGeneric("mbind", function(x, y, fill, ...) standardGeneric("mbind"))
 
-setMethod("mbind", signature(x="matrix", y="matrix", fill="ANY"), 
+setMethod("mbind", signature(x="matrix", y="matrix", fill="ANY"),
     function(x, y, fill, ...) {
         if (missing(fill))
             fill <- NA
@@ -153,7 +43,7 @@ setMethod("mbind", signature(x="matrix", y="matrix", fill="ANY"),
         colnames(part5) <- c(cx, cxy, cy)
         part5
 })
-setMethod("mbind", signature(x="sparseMatrix", y="sparseMatrix", fill="ANY"), 
+setMethod("mbind", signature(x="sparseMatrix", y="sparseMatrix", fill="ANY"),
     function(x, y, fill, ...) {
         if (missing(fill))
             fill <- NA
@@ -196,7 +86,7 @@ setMethod("mbind", signature(x="sparseMatrix", y="sparseMatrix", fill="ANY"),
         colnames(part5) <- c(cx, cxy, cy)
         part5
 })
-setMethod("mbind", signature(x="Mefa", y="Mefa", fill="ANY"), 
+setMethod("mbind", signature(x="Mefa", y="Mefa", fill="ANY"),
     function(x, y, fill, drop, ...) {
         if (missing(drop))
             drop <- FALSE
@@ -286,40 +176,4 @@ setMethod("mbind", signature(x="Mefa", y="Mefa", fill="ANY"),
             tm2 <- taxay[c(c1,cy), , drop=FALSE]
         ## assembling
         Mefa(part5, sm2, tm2, join="left", drop)
-})
-
-setGeneric("mbind2", function(x, y, fill, ...) standardGeneric("mbind2"))
-
-setMethod("mbind2", signature(x="matrix", y="matrix", fill="ANY"), 
-    function(x, y, fill, ...) {
-        as.matrix(mbind2(x=as(x, "sparseMatrix"),
-            y=as(y, "sparseMatrix"),
-            fill=fill, ...))
-})
-
-setMethod("mbind2", signature(x="sparseMatrix", y="sparseMatrix", fill="ANY"), 
-    function(x, y, fill, ...) {
-        if (missing(fill))
-            fill <- NA
-        if (length(x) == 0)
-            stop("length of 'x' must not be 0")
-        if (length(y) == 0)
-            stop("length of 'y' must not be 0")
-        if (is.null(dimnames(x)))
-            stop("dimnames of 'x' must not be NULL")
-        if (is.null(dimnames(y)))
-            stop("dimnames of 'y' must not be NULL")
-        rn <- union(rownames(x), rownames(y))
-        cn <- union(colnames(x), colnames(y))
-        rn0 <- intersect(rownames(x), rownames(y))
-        cn0 <- intersect(colnames(x), colnames(y))
-        out <- Matrix(fill, 
-            length(rn), length(cn), 
-            dimnames=list(rn, cn),
-            sparse=TRUE)
-        out <- as(out, "dgCMatrix")
-        out[rownames(x), colnames(x)] <- x
-        out[rownames(y), colnames(y)] <- y
-        out[rn0, cn0] <- x[rn0, cn0] + y[rn0, cn0]
-        out
 })
