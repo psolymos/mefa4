@@ -73,6 +73,9 @@ x <- data.frame(Name=levels(abmibirds[["Common.Name"]]),
     NameAlnum=nameAlnum(levels(abmibirds[["Common.Name"]])))
 x[grep("'", x$Name),]
 
+data.frame(out=sapply(c("asis", "first", "none", "all", "mixed"),
+    function(z) nameAlnum("Olive-sided Flycatcher", z)))
+
 z <- data.frame(Name=levels(abmibirds[["Common.Name"]]),
     NameNormalized=normalizeNames(levels(abmibirds[["Common.Name"]]),
         pattern=list("'", "-", " "), replacement=list("", "_", "_")))

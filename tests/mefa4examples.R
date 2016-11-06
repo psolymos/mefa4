@@ -12,7 +12,7 @@ help_pages <- c("abmibirds",
     "groupSums", "mbind", "Mefa",
     "Melt",
     "nameAlnum", "nonDuplicated",
-    "notin", "r2rmd",
+    "%notin%", "r2rmd",
     "samp", "Xtab")
 
 for (i in help_pages) {
