@@ -17,8 +17,8 @@ help_pages <- c("abmibirds",
 
 for (i in help_pages) {
     cat("\n\n---------- mefa4 example:", i, "----------\n\n")
-    eval(parse(text=paste0("example(", i,
-        ", package = 'mefa4', run.dontrun = TRUE)")))
+    eval(parse(text=paste0("example('", i,
+        "', package = 'mefa4', run.dontrun = TRUE)")))
 }
 
 
