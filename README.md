@@ -19,13 +19,13 @@ See tutorial with design decisions and performance comparisons ([Rmd](https://gi
 
 Install CRAN version as:
 
-```
+```R
 install.packages("mefa4")
 ```
 
 Install development version from GitHub:
 
-```
+```R
 library(devtools)
 install_github("psolymos/mefa4")
 ```
