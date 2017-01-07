@@ -86,7 +86,7 @@ relative to the `stats::xtabs`
 function with `sparse = TRUE`. This function is 
 adapted to some extent, so it can subset
 the cross-tabulated results before returning the 
-value (`rdrop` and `cdrop arguments,
+value (`rdrop` and `cdrop` arguments,
 that is available as the `Xtab` function in the 
 **mefa4** package). This takes a formula,
 and can be applied directly on a data frame. 
