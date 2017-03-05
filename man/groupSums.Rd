@@ -1,4 +1,5 @@
 \name{groupSums}
+\alias{sum_by}
 \alias{groupSums}
 \alias{groupSums,matrix-method}
 \alias{groupSums,sparseMatrix-method}
@@ -23,11 +24,15 @@ groupMeans(object, ...)
 \S4method{groupMeans}{matrix}(object, MARGIN, by, na.rm = FALSE, ...)
 \S4method{groupMeans}{sparseMatrix}(object, MARGIN, by, na.rm = FALSE, ...)
 \S4method{groupMeans}{Mefa}(object, MARGIN, by, replace, na.rm = FALSE, ...)
+
+sum_by(x, by)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{object}{
   an object.
+}
+  \item{x}{
+  a vector.
 }
   \item{MARGIN}{
 numeric, \code{1} indicates rows are to be summed/averaged, 
@@ -98,6 +103,8 @@ groupMeans(x2, 1, c(1,1,2))
 groupMeans(x2, 2, c(1,1,2,2))
 groupMeans(x5, 1, c(1,1,2))
 groupMeans(x5, 2, c(1,1,2,2))
+
+sum_by(runif(100, 0, 1), sample(LETTERS[1:4], 100, replace=TRUE))
 }
 \keyword{ manip }
 \keyword{ methods }
