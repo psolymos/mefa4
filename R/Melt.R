@@ -16,10 +16,11 @@ function(x)
         rows <- x@i + 1L
         cols <- x@j + 1L
         y <- x@x
-        out <- data.frame(rows = factor(x@Dimnames[[1]][rows],
-            levels=x@Dimnames[[1]]),
+        out <- data.frame(
+            rows = factor(x@Dimnames[[1]][rows],
+                levels=unique(x@Dimnames[[1]])),
             cols = factor(x@Dimnames[[2]][cols],
-            levels=x@Dimnames[[2]]),
+                levels=unique(x@Dimnames[[2]])),
             value = y)
     } else if (is.list(x) && all(sapply(x, function(z)
         inherits(z, "sparseMatrix")))) {
@@ -34,10 +35,11 @@ function(x)
             cols[[k]] <- X[[k]]@j + 1L
             y[[k]] <- X[[k]]@x
         }
-        out <- data.frame(rows = factor(x[[1]]@Dimnames[[1]][unlist(rows)],
-            levels=x[[1]]@Dimnames[[1]]),
+        out <- data.frame(
+            rows = factor(x[[1]]@Dimnames[[1]][unlist(rows)],
+                levels=unique(x[[1]]@Dimnames[[1]])),
             cols = factor(x[[1]]@Dimnames[[2]][unlist(cols)],
-            levels=x[[1]]@Dimnames[[2]]),
+                levels=unique(x[[1]]@Dimnames[[2]])),
             segm = as.factor(rep(names(x), sapply(y, length))),
             value = unlist(y))
     } else stop("object class not appropriate")

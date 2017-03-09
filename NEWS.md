@@ -1,8 +1,9 @@
 # User-visible changes in the mefa4 R package
 
-## Version 0.3-5 -- Mar 5, 201y
+## Version 0.3-5 -- Mar 5, 2017
 
 * `sum_by` to sum a vector by grouping indices.
+* `Melt` uses `unique` colnames to avoid duplicate factor levels warning.
 
 ## Version 0.3-4 -- Oct 12, 2016
 
