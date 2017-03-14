@@ -5,7 +5,7 @@
 Sparse Cross Tabulation
 }
 \description{
-Create a contingency table from cross-classifying factors, usually contained in a data frame, using a formula interface. 
+Create a contingency table from cross-classifying factors, usually contained in a data frame, using a formula interface.
 }
 \usage{
 Xtab(formula = ~., data = parent.frame(), rdrop, cdrop,
@@ -35,12 +35,12 @@ a logical indicating whether to drop unused levels in the classifying factors. I
 }
 }
 \details{
-The function creates two- or three-way cross tabulation. Only works for two or three factors. 
+The function creates two- or three-way cross tabulation. Only works for two or three factors.
 
-If a left hand side is given in formula, its entries are simply summed over the cells corresponding to the right hand side; this also works if the left hand side does not give counts. 
+If a left hand side is given in formula, its entries are simply summed over the cells corresponding to the right hand side; this also works if the left hand side does not give counts.
 }
 \value{
-A sparse numeric matrix inheriting from \code{\link{sparseMatrix}}, specifically an object of S4 class \code{dgCMatrix}. 
+A sparse numeric matrix inheriting from \code{\link{sparseMatrix}}, specifically an object of S4 class \code{dgCMatrix}.
 
 For three factors, a list of sparse matrices.
 }
@@ -51,6 +51,9 @@ Modified by Peter Solymos <solymos@ualberta.ca>
 }
 \seealso{
 See also \code{\link[stats]{xtabs}} in \pkg{stats} package.
+
+\code{\link{sum_by}} for sums over a classes ('one-way table'),
+and \code{\link{Melt}} for the inverse operation of \code{Xtab}.
 
 \code{"mefa"} S3 class: \code{\link[mefa]{mefa}} in \pkg{mefa} package.
 }
