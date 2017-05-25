@@ -14,7 +14,7 @@ Utility functions for factors and compositional data.
 compare_sets(x, y)
 find_max(x)
 find_min(x)
-reclass(x, map, all = FALSE)
+reclass(x, map, all = FALSE, allow_NA = FALSE)
 redistribute(x, source, target = NULL)
 }
 \arguments{
@@ -30,6 +30,9 @@ a reclassification matrix with 2 columns (1st: original levels,
   \item{all}{
 logical, whether all levels from mapping matrix should be
 applied on the return object.
+}
+  \item{allow_NA}{
+logical, whether \code{NA}s are allowed as part of \code{map}.
 }
   \item{source}{
 numeric or character, single column index for input matrix \code{x}.
@@ -74,6 +77,10 @@ x <- as.factor(sample(map[1:6,1], 100, replace=TRUE))
 x[2] <- NA
 table(x, reclass(x, map, all = FALSE), useNA="always")
 table(x, reclass(x, map, all = TRUE), useNA="always")
+
+map[c(4, 7), 2] <- NA
+table(x, reclass(x, map, all = FALSE, allow_NA = TRUE), useNA="always")
+table(x, reclass(x, map, all = TRUE, allow_NA = TRUE), useNA="always")
 
 (mat2 <- exp(mat) / rowSums(exp(mat)))
 (rmat2 <- redistribute(mat2, source = 1, target = 2:4))
