@@ -1,4 +1,4 @@
-## accessor methods 
+## accessor methods
 
 ## for new mefa classes
 setGeneric("xtab", function(x) standardGeneric("xtab"))
@@ -60,7 +60,7 @@ setReplaceMethod("xtab", signature(x = "Mefa", value = "MefaMatrix"),
             rownames(x@taxa) <- ckeep
         x
 })
-setReplaceMethod("samp", signature(x = "Mefa", value = "MefaDataFrame"), 
+setReplaceMethod("samp", signature(x = "Mefa", value = "MefaDataFrame"),
     function(x, value) {
         if (!is.null(value)) {
             if (x@join == "left") {
@@ -76,7 +76,7 @@ setReplaceMethod("samp", signature(x = "Mefa", value = "MefaDataFrame"),
         } else x@samp <- NULL
         x
 })
-setReplaceMethod("taxa", signature(x = "Mefa", value = "MefaDataFrame"), 
+setReplaceMethod("taxa", signature(x = "Mefa", value = "MefaDataFrame"),
     function(x, value) {
         if (!is.null(value)) {
             if (x@join == "left") {
@@ -96,7 +96,7 @@ setReplaceMethod("taxa", signature(x = "Mefa", value = "MefaDataFrame"),
 ## subsetting [
 ## TODO: vary for different signatures???
 
-setMethod("[", signature(x = "Mefa", i = "ANY", 
+setMethod("[", signature(x = "Mefa", i = "ANY",
         j = "ANY", drop = "ANY"),
     function(x, i, j, ..., drop) {
         if (missing(i))
@@ -123,12 +123,12 @@ setMethod("[", signature(x = "Mefa", i = "ANY",
         if (!is.null(x@samp)) {
             x@samp <- x@samp[i,,drop=FALSE]
             if (drop)
-                x@samp <- lapply(x@samp, function(z) z[drop=TRUE])
+                x@samp <- droplevels(x@samp)
         }
         if (!is.null(x@taxa)) {
             x@taxa <- x@taxa[j,,drop=FALSE]
             if (drop)
-                x@taxa <- lapply(x@taxa, function(z) z[drop=TRUE])
+                x@taxa <- droplevels(x@taxa)
         }
         x
 })
@@ -145,7 +145,7 @@ setAs(from = "sparseMatrix", to = "Mefa", def = function(from) Mefa(from))
 setMethod("dim", "Mefa", function(x) dim(x@xtab))
 setMethod("dimnames", "Mefa", function(x) dimnames(x@xtab))
 
-setMethod("dimnames<-", signature(x = "Mefa", value = "list"), 
+setMethod("dimnames<-", signature(x = "Mefa", value = "list"),
     function(x, value) {
         dimnames(x@xtab) <- value
         if (!is.null(x@samp))
@@ -191,13 +191,13 @@ setMethod("stack", "Mefa", function(x, ...) {
     SAMP <- samp(x)
     if (!is.null(SAMP)) {
         colnames(SAMP) <- paste("samp", colnames(SAMP), sep="_")
-        X <- data.frame(X, 
+        X <- data.frame(X,
             SAMP[match(X$samp, rownames(SAMP)),])
     }
     TAXA <- taxa(x)
     if (!is.null(TAXA)) {
         colnames(TAXA) <- paste("taxa", colnames(TAXA), sep="_")
-        X <- data.frame(X, 
+        X <- data.frame(X,
             TAXA[match(X$taxa, rownames(TAXA)),])
     }
     X
