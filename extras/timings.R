@@ -70,3 +70,44 @@ summary(lm(mm2 ~ z * s, vals))
 f1(10, 0, 10, 10, 1)
 f1(100, 0, 10, 10, 1)
 f1(1000, 0, 10, 10, 1)
+
+
+## comparing aggregate to sum_by
+
+n <- 10^(4:6)
+m <- 10^(1:3)
+vals <- expand.grid(n=n, m=m)
+f <- function(x) {
+    n <- x[1]
+    m <- x[2]
+    y <- runif(n, 0, 1)
+    z <- sample.int(m, length(y), replace=TRUE)
+#    microbenchmark(
+#        aggregate=aggregate(y, list(z), sum),
+#        sum_by=sum_by(y, z))
+    list(aggregate=system.time(aggregate(y, list(z), sum)),
+        dplyr=system.time(data.frame(y=y, z=z) %>% group_by(z) %>% tally()),
+        sum_by=system.time(sum_by(y, z)))
+}
+library(pbapply)
+library(microbenchmark)
+library(dplyr)
+
+out <- pbapply(vals, 1, f)
+#vals$aggr <- sapply(out, function(z) summary(z)$mean[1])
+#vals$sumby <- sapply(out, function(z) summary(z)$mean[2])
+vals$aggr <- sapply(out, function(z) z$aggregate[3])
+vals$dplyr <- sapply(out, function(z) z$dplyr[3])
+vals$sumby <- sapply(out, function(z) z$sum_by[3])
+
+with(vals, plot(n, aggr, type="n", ylim=c(0, max(vals$aggr, vals$sumby)),
+    log="x"))
+for (i in 1:length(m)) {
+    with(vals[vals$m==m[i],], points(n, aggr, type="b", col=i, lty=1))
+    with(vals[vals$m==m[i],], points(n, dplyr, type="b", col=i, lty=2))
+    with(vals[vals$m==m[i],], points(n, sumby, type="b", col=i, lty=3))
+}
+legend("topleft", col=rep(1:length(m), 2), lty=rep(1:2, each=length(m)),
+    legend=paste(rep(c("aggregate", "sum_by"), each=length(m)),
+    "m =", m))
+
