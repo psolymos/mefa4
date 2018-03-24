@@ -4,6 +4,9 @@
 
 * `sum_by` to sum a vector by grouping indices.
 * `Melt` uses `unique` colnames to avoid duplicate factor levels warning.
+* `rBind` and `cBind` deprecated and `rbind`/`cbind` is used
+  (https://stat.ethz.ch/pipermail/r-devel/2018-March/075737.html),
+  package now depends on R (>= 3.2.0).
 
 ## Version 0.3-4 -- Oct 12, 2016
 
