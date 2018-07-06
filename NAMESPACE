@@ -5,7 +5,6 @@ export(Xtab, Mefa,
     reclass, redistribute, sum_by)
 export('%notin%')
 exportClasses(Mefa, stcs, mefa, MefaMatrix, MefaDataFrame)
-#    sparseMatrixList
 exportMethods(xtab, samp, taxa, dim, dimnames, "dimnames<-",
     "xtab<-", "samp<-", "taxa<-", "[",
     groupSums, groupMeans,
@@ -20,4 +19,3 @@ importMethodsFrom(Matrix, colSums, rowSums,
 importFrom(utils, stack)
 import(methods)
 importFrom(stats, as.formula, terms)
-importFrom(pbapply, pbapply)
