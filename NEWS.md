@@ -1,5 +1,9 @@
 # User-visible changes in the mefa4 R package
 
+## Version 0.3-6 -- Jul 6, 2018
+
+* `find_max` and `find_min` are much faster.
+
 ## Version 0.3-5 -- Mar 24, 2018
 
 * `sum_by` to sum a vector by grouping indices.
