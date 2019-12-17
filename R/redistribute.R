@@ -17,6 +17,7 @@ redistribute <- function(x, source, target=NULL) {
         stop("source must not be part of target")
     m <- x[, j, drop = FALSE]
     rs <- rowSums(m)
+    rs[rs == 0] <- 1
     rs[is.na(rs)] <- 1
     x[, j] <- m + x[, i] * m/rs
     x[, i] <- 0
