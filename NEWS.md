@@ -1,8 +1,13 @@
 # User-visible changes in the mefa4 R package
 
-## Version 0.3-6 -- Jul 6, 2018
+## Version 0.3-7 -- Feb 28, 2020
 
-* `find_max` and `find_min` are much faster.
+* `stringsAsFactors = TRUE` added to `data.frame()` calls
+  to prepare for R-devel changes.
+
+## Version 0.3-6 -- Jul 20, 2019
+
+* `find_max` and `find_min` are much now faster.
 
 ## Version 0.3-5 -- Mar 24, 2018
 
