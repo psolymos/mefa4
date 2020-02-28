@@ -25,7 +25,7 @@ columns are factors.
 Peter Solymos <solymos@ualberta.ca>
 }
 \seealso{
-\code{\link{stack}} in \pkg{utils}, 
+\code{\link{stack}} in \pkg{utils},
 and \code{\link[mefa]{melt}} in \pkg{mefa} package.
 }
 \examples{
@@ -33,7 +33,8 @@ xx <- data.frame(
     sample = paste("Sample", c(1,1,2,2,3,4), sep="."),
     species = c(paste("Species", c(1,1,1,2,3), sep="."),  "zero.pseudo"),
     count = c(1,2,10,3,4,0),
-    segment = letters[c(6,13,6,13,6,6)])
+    segment = letters[c(6,13,6,13,6,6)],
+    stringsAsFactors = TRUE)
 xx
 xx0 <- Xtab(count ~ sample + species, xx)
 xx1 <- Xtab(count ~ sample + species + segment, xx)

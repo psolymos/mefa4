@@ -107,7 +107,7 @@ for (i in 1:length(m)) {
     with(vals[vals$m==m[i],], points(n, dplyr, type="b", col=i, lty=2))
     with(vals[vals$m==m[i],], points(n, sumby, type="b", col=i, lty=3))
 }
-legend("topleft", col=rep(1:length(m), 2), lty=rep(1:2, each=length(m)),
-    legend=paste(rep(c("aggregate", "sum_by"), each=length(m)),
+legend("topleft", col=rep(1:length(m), 3), lty=rep(1:3, each=length(m)),
+    legend=paste(rep(c("aggregate","dplyr","sum_by"), each=length(m)),
     "m =", m))
 

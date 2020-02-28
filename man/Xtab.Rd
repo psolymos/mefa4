@@ -61,7 +61,8 @@ and \code{\link{Melt}} for the inverse operation of \code{Xtab}.
 x <- data.frame(
     sample = paste("Sample", c(1,1,2,2,3,4), sep="."),
     species = c(paste("Species", c(1,1,1,2,3), sep="."),  "zero.pseudo"),
-    count = c(1,2,10,3,4,0))
+    count = c(1,2,10,3,4,0),
+    stringsAsFactors = TRUE)
 x
 ## Xtab class, counts by repetitions in RHS
 (x0 <- Xtab(~ sample + species, x))
@@ -79,7 +80,8 @@ xx <- data.frame(
     sample = paste("Sample", c(1,1,2,2,3,4), sep="."),
     species = c(paste("Species", c(1,1,1,2,3), sep="."),  "zero.pseudo"),
     count = c(1,2,10,3,4,0),
-    segment = letters[c(6,13,6,13,6,6)])
+    segment = letters[c(6,13,6,13,6,6)],
+    stringsAsFactors = TRUE)
 xx
 Xtab(count ~ sample + species, xx)
 Xtab(count ~ sample + species + segment, xx)

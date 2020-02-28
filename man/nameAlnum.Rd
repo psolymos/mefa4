@@ -70,15 +70,18 @@ paste0(paste0date("file", "name", sep.date="_"), ".csv")
 
 data(abmibirds)
 x <- data.frame(Name=levels(abmibirds[["Common.Name"]]),
-    NameAlnum=nameAlnum(levels(abmibirds[["Common.Name"]])))
+    NameAlnum=nameAlnum(levels(abmibirds[["Common.Name"]])),
+    stringsAsFactors = TRUE)
 x[grep("'", x$Name),]
 
 data.frame(out=sapply(c("asis", "first", "none", "all", "mixed"),
-    function(z) nameAlnum("Olive-sided Flycatcher", z)))
+    function(z) nameAlnum("Olive-sided Flycatcher", z)),
+    stringsAsFactors = TRUE)
 
 z <- data.frame(Name=levels(abmibirds[["Common.Name"]]),
     NameNormalized=normalizeNames(levels(abmibirds[["Common.Name"]]),
-        pattern=list("'", "-", " "), replacement=list("", "_", "_")))
+        pattern=list("'", "-", " "), replacement=list("", "_", "_")),
+    stringsAsFactors = TRUE)
 z[grepl("'", z$Name) & grepl("-", z$Name),]
 }
 \keyword{ manip }

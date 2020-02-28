@@ -77,15 +77,18 @@ x <- data.frame(
     sample = paste("Sample", c(1,1,2,2,3,4), sep="."),
     species = c(paste("Species", c(1,1,1,2,3), sep="."),  "zero.pseudo"),
     count = c(1,2,10,3,4,0),
-    segment = letters[c(6,13,6,13,6,6)])
+    segment = letters[c(6,13,6,13,6,6)],
+    stringsAsFactors = TRUE)
 s <- stcs(x)
 attributes(s)
 @
 These attributes ensure that the cross-tab made by the function \code{mefa()} creates a proper
 cross-tab by eliminating the column that is only a placeholder for empty samples, etc.:
 <<>>=
-samp <- data.frame(samples=levels(x$sample), var1=1:2)
-taxa <- data.frame(specnames=levels(x$species), var2=c("b","a"))
+samp <- data.frame(samples=levels(x$sample), var1=1:2,
+    stringsAsFactors = TRUE)
+taxa <- data.frame(specnames=levels(x$species), var2=c("b","a"),
+    stringsAsFactors = TRUE)
 rownames(samp) <- samp$samples
 rownames(taxa) <- taxa$specnames
 (m <- mefa(s, samp, taxa))
@@ -96,7 +99,7 @@ The \code{stcs} step is almost redundant, and inefficient relative to the \code{
 function with \code{sparse = TRUE}. This function is adapted to some extent, so it can subset
 the cross-tabulated results before returning the value (\code{rdrop} and \code{cdrop} arguments,
 that is available as the \code{Xtab} function in the \pkg{mefa4} package). This takes a formula,
-and can be applied directly on a data frame. The formula can have a left-hand side, or the left-hand side can be 
+and can be applied directly on a data frame. The formula can have a left-hand side, or the left-hand side can be
 missing. The right-hand side can contain 2--3 factors, and the result will be a sparse matrix
 or a list of sparse matrices, respectively:
 <<>>=
@@ -116,7 +119,7 @@ x21 <- Xtab(count ~ sample + species, x, cdrop=TRUE, rdrop=FALSE)
 The results here are sparse matrices in compact mode, this means that
 redundant indices are only kept once, so it is more compact than
 a long formatted database representation stored in an \code{stcs}
-object or in the original data frame, or a triplet representation of a sparse matrix. See vignettes in the 
+object or in the original data frame, or a triplet representation of a sparse matrix. See vignettes in the
 \pkg{Matrix} package for more details on S4 sparse matrix classes.
 
 The S4 class \code{"Mefa"} is defined in the \pkg{mefa4} package.
@@ -127,7 +130,7 @@ It can be created by the \code{Mefa()} function, and the result has 4 slots:
 The \code{xtab} slot stores the cross-tab in sparse matrix format.
 The \code{samp} slot stores the row attributes for \code{xtab}
 as data frame or can be \code{NULL}.
-The \code{taxa} slot stores the column attributes for \code{xtab} 
+The \code{taxa} slot stores the column attributes for \code{xtab}
 as data frame or can be \code{NULL}. Validity checks are done to ensure
 proper object classes to be used and matching dimnames.
 The option that a column in the attribute tables can be specified
@@ -158,7 +161,7 @@ A \code{"Mefa"} object with only \code{xtab} can also be defined:
 The equivalent of the \code{melt} method of the \pkg{mefa} package is
 the \code{Melt} function in \pkg{mefa4}. It can be used to reverse
 the side effects of the cross-tabulation, thus making a data frame
-from a matrix, sparse matrix, list of sparse matrices, 
+from a matrix, sparse matrix, list of sparse matrices,
 a \code{mefa} or a \code{Mefa} object:
 <<>>=
 Melt(x1)
@@ -171,7 +174,7 @@ work properly on both types. The S4 class does not have a slot for
 a call, and there is no \code{segm} element/slot either. This means that
 a \code{"Mefa"} object cannot have 3 dimensions, only 2. \code{Xtab} can create
 3-dimensional sparse array-like objects (list of sparse matrices of the same dimensions),
-but there is no formal S4 class that can handle sparse matrix lists as part of 
+but there is no formal S4 class that can handle sparse matrix lists as part of
 a \code{"Mefa"} object.
 The \code{as.mefa} method can convert such a list of sparse matrices into an S3
 \code{"mefa"} object with segments.
@@ -259,7 +262,7 @@ t(x5)
 
 \section{Grouping rows and columns}
 
-The \code{aggregate} method was defined for 
+The \code{aggregate} method was defined for
 S3 \code{mefa} objects. Its equivalent (although it cannot
 sum the cells simultaneously for rows and columns, but
 it was done in 2 subsequent steps anyway) is the
@@ -288,8 +291,8 @@ groupMeans(x5, 2, c(1,1,2,2))
 \section{Combining objects}
 
 \code{mbind} can be used to combine 2 matrices (dense or sparse).
-The 2 input objects are combined in a left join manner, which means 
-that all the elements in the first object are retained, 
+The 2 input objects are combined in a left join manner, which means
+that all the elements in the first object are retained,
 and only non-overlapping elements in the second object are used.
 Elements of the returning object that are not part of either objects (outer set)
 are filled up with value provided as \code{fill} argument.
@@ -312,11 +315,14 @@ by the \code{as.Mefa} method beforehand -- this is so
 because the S3 class does not allow \code{NA} values in
 \code{$xtab}, and it is safer to avoid unnecessary complications):
 <<>>=
-sampx <- data.frame(x1=1:2, x2=2:1)
+sampx <- data.frame(x1=1:2, x2=2:1,
+    stringsAsFactors = TRUE)
 rownames(sampx) <- rownames(x)
-sampy <- data.frame(x1=3:4, x3=10:11)
+sampy <- data.frame(x1=3:4, x3=10:11,
+    stringsAsFactors = TRUE)
 rownames(sampy) <- rownames(y)
-taxay <- data.frame(x1=1:2, x2=2:1)
+taxay <- data.frame(x1=1:2, x2=2:1,
+    stringsAsFactors = TRUE)
 rownames(taxay) <- colnames(y)
 taxax <- NULL
 mbind(Mefa(x, sampx), Mefa(y, sampy, taxay))
@@ -331,22 +337,22 @@ Biodiversity Monitoring Institute database (available at \href{http://www.abmi.c
 data(abmibirds)
 @
 
-This is the processing with \pkg{mefa} and S3 object classes 
+This is the processing with \pkg{mefa} and S3 object classes
 (we are storing the results and processing times):
 <<>>=
 b3 <- abmibirds
 b3 <- b3[!(b3$Scientific.Name %in% c("VNA", "DNC", "PNA")),]
-levels(b3$Scientific.Name)[levels(b3$Scientific.Name) 
+levels(b3$Scientific.Name)[levels(b3$Scientific.Name)
     %in% c("NONE", "SNI")] <- "zero.pseudo"
 b3$Counts <- ifelse(b3$Scientific.Name == "zero.pseudo", 0, 1)
-b3$Label <- with(b3, paste(ABMI.Site, Year, 
+b3$Label <- with(b3, paste(ABMI.Site, Year,
     Point.Count.Station, sep="_"))
-x3 <- b3[!duplicated(b3$Label), c("Label", 
-    "ABMI.Site", "Year", "Field.Date", 
+x3 <- b3[!duplicated(b3$Label), c("Label",
+    "ABMI.Site", "Year", "Field.Date",
     "Point.Count.Station", "Wind.Conditions", "Precipitation")]
 rownames(x3) <- x3$Label
 z3 <- b3[!duplicated(b3$Scientific.Name), c("Common.Name",
-    "Scientific.Name", "Taxonomic.Resolution", 
+    "Scientific.Name", "Taxonomic.Resolution",
     "Unique.Taxonomic.Identification.Number")]
 rownames(z3) <- z3$Scientific.Name
 z3 <- z3[z3$Scientific.Name != "zero.pseudo",]
@@ -362,19 +368,19 @@ m32
 The equivalent processing with \pkg{mefa4} and S4 object classes:
 <<>>=
 b4 <- abmibirds
-b4$Label <- with(b4, paste(ABMI.Site, Year, 
+b4$Label <- with(b4, paste(ABMI.Site, Year,
     Point.Count.Station, sep="_"))
-x4 <- b4[!duplicated(b4$Label), c("Label", "ABMI.Site", 
+x4 <- b4[!duplicated(b4$Label), c("Label", "ABMI.Site",
     "Year", "Field.Date", "Point.Count.Station",
     "Wind.Conditions", "Precipitation")]
 rownames(x4) <- x4$Label
 z4 <- b4[!duplicated(b4$Scientific.Name), c("Common.Name",
-    "Scientific.Name", "Taxonomic.Resolution", 
+    "Scientific.Name", "Taxonomic.Resolution",
     "Unique.Taxonomic.Identification.Number")]
 rownames(z4) <- z4$Scientific.Name
-t41 <- system.time(s4 <- Xtab(~ Label + Scientific.Name, 
-    b4, cdrop = c("NONE", "SNI"), 
-    subset = !(b4$Scientific.Name %in% c("VNA", "DNC", "PNA")), 
+t41 <- system.time(s4 <- Xtab(~ Label + Scientific.Name,
+    b4, cdrop = c("NONE", "SNI"),
+    subset = !(b4$Scientific.Name %in% c("VNA", "DNC", "PNA")),
     drop.unused.levels = TRUE))
 t42 <- system.time(m40 <- Mefa(s4))
 t43 <- system.time(m41 <- Mefa(s4, x4, z4))

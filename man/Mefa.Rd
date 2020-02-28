@@ -42,7 +42,7 @@ logical, if unused levels in the data frames should be dropped.
 }
 }
 \details{
-\code{samp} and \code{taxa} tables are matched with 
+\code{samp} and \code{taxa} tables are matched with
 corresponding dimnames in \code{xtab}:
 rownames with \code{samp}, colnames with \code{taxa}.
 If \code{join = "left"}, all rows and columns in \code{xtab} are retained,
@@ -50,17 +50,17 @@ while missing items in the corresponding attribute tables are filled up with \co
 If \code{join = "inner"}, only the intersection of corresponding names are retained.
 
 The \code{xtab} slot is a sparse matrix (\code{dgCMatrix}). The input
-should be in class \code{MefaMatrix} that is a class union of 
+should be in class \code{MefaMatrix} that is a class union of
 \code{matrix} and \code{sparseMatrix} classes.
 
 The \code{samp} and \code{taxa} slots take data frame or \code{NULL}, which two form
 the \code{MefaDataFrame} class union.
 
-The virtual classes \code{mefa} and \code{stcs} are defined for 
+The virtual classes \code{mefa} and \code{stcs} are defined for
 seamless coercion between S3 and S4 classes.
 }
 \value{
-An S4 object of class \code{"Mefa"} with 4 slots: \code{xtab}, 
+An S4 object of class \code{"Mefa"} with 4 slots: \code{xtab},
 \code{samp}, \code{taxa}, \code{join}.
 }
 \author{
@@ -80,9 +80,12 @@ Accessing and replacing slots: \code{\link[mefa4]{xtab}}, \code{\link[mefa4]{sam
 x <- data.frame(
     sample = paste("Sample", c(1,1,2,2,3,4), sep="."),
     species = c(paste("Species", c(1,1,1,2,3), sep="."),  "zero.pseudo"),
-    count = c(1,2,10,3,4,0))
-samp <- data.frame(samples=levels(x$sample), var1=1:2)
-taxa <- data.frame(specnames=levels(x$species), var2=c("b","a"))
+    count = c(1,2,10,3,4,0),
+    stringsAsFactors = TRUE)
+samp <- data.frame(samples=levels(x$sample), var1=1:2,
+    stringsAsFactors = TRUE)
+taxa <- data.frame(specnames=levels(x$species), var2=c("b","a"),
+    stringsAsFactors = TRUE)
 rownames(samp) <- samp$samples
 rownames(taxa) <- taxa$specnames
 

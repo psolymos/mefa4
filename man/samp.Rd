@@ -59,9 +59,12 @@ Peter Solymos <solymos@ualberta.ca>
 x <- data.frame(
     sample = paste("Sample", c(1,1,2,2,3,4), sep="."),
     species = c(paste("Species", c(1,1,1,2,3), sep="."),  "zero.pseudo"),
-    count = c(1,2,10,3,4,0))
-samp <- data.frame(samples=levels(x$sample), var1=1:2)
-taxa <- data.frame(specnames=levels(x$species), var2=c("b","a"))
+    count = c(1,2,10,3,4,0),
+    stringsAsFactors = TRUE)
+samp <- data.frame(samples=levels(x$sample), var1=1:2,
+    stringsAsFactors = TRUE)
+taxa <- data.frame(specnames=levels(x$species), var2=c("b","a"),
+    stringsAsFactors = TRUE)
 rownames(samp) <- samp$samples
 rownames(taxa) <- taxa$specnames
 x1 <- Xtab(count ~ sample + species, x)

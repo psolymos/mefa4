@@ -60,11 +60,14 @@ y=matrix(11:14,2,2)
 rownames(y) <- c("b","c")
 colnames(y) <- c("B","C")
 
-sampx <- data.frame(x1=1:2, x2=2:1)
+sampx <- data.frame(x1=1:2, x2=2:1,
+    stringsAsFactors = TRUE)
 rownames(sampx) <- rownames(x)
-sampy <- data.frame(x1=3:4, x3=10:11)
+sampy <- data.frame(x1=3:4, x3=10:11,
+    stringsAsFactors = TRUE)
 rownames(sampy) <- rownames(y)
-taxay <- data.frame(x1=1:2, x2=2:1)
+taxay <- data.frame(x1=1:2, x2=2:1,
+    stringsAsFactors = TRUE)
 rownames(taxay) <- colnames(y)
 taxax <- NULL
 

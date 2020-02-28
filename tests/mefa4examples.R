@@ -27,10 +27,13 @@ x <- data.frame(
     sample = paste("Sample", c(1,1,2,2,3,4), sep="."),
     species = c(paste("Species", c(1,1,1,2,3), sep="."),  "zero.pseudo"),
     count = c(1,2,10,3,4,0),
-    segment = letters[c(6,13,6,13,6,6)])
+    segment = letters[c(6,13,6,13,6,6)],
+    stringsAsFactors = TRUE)
 x
-samp <- data.frame(samples=levels(x$sample), var1=1:2)
-taxa <- data.frame(specnames=levels(x$species), var2=c("b","a"))
+samp <- data.frame(samples=levels(x$sample), var1=1:2,
+    stringsAsFactors = TRUE)
+taxa <- data.frame(specnames=levels(x$species), var2=c("b","a"),
+    stringsAsFactors = TRUE)
 rownames(samp) <- samp$samples
 rownames(taxa) <- taxa$specnames
 samp
@@ -169,11 +172,14 @@ y=matrix(11:14,2,2)
 rownames(y) <- c("b","c")
 colnames(y) <- c("B","C")
 
-sampx <- data.frame(x1=1:2, x2=2:1)
+sampx <- data.frame(x1=1:2, x2=2:1,
+    stringsAsFactors = TRUE)
 rownames(sampx) <- rownames(x)
-sampy <- data.frame(x1=3:4, x3=10:11)
+sampy <- data.frame(x1=3:4, x3=10:11,
+    stringsAsFactors = TRUE)
 rownames(sampy) <- rownames(y)
-taxay <- data.frame(x1=1:2, x2=2:1)
+taxay <- data.frame(x1=1:2, x2=2:1,
+    stringsAsFactors = TRUE)
 rownames(taxay) <- colnames(y)
 taxax <- NULL
 
