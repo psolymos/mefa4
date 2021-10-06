@@ -45,9 +45,7 @@ Solymos P. (2009) Processing ecological
 data in R with the mefa package. 
 \emph{Journal of Statistical Software} 
 \bold{29(8)}, 1--28. 
-\url{http://www.jstatsoft.org/v29/i08/}
-
-\url{http://mefa.r-forge.r-project.org/}
+\doi{10.18637/jss.v029.i08}
 }
 \keyword{ package }
 \seealso{

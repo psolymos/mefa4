@@ -50,4 +50,4 @@ _Community Ecology_ **9**, 125-127. ([PDF](https://drive.google.com/file/d/0B-q5
 
 Solymos P. 2009. Processing ecological data in R with the mefa package.
 _Journal of Statistical Software_ **29(8)**, 1-28.
-URL: [http://www.jstatsoft.org/v29/i08/](http://www.jstatsoft.org/v29/i08/)
+DOI: [10.18637/jss.v029.i08](https://doi.org/10.18637/jss.v029.i08)
