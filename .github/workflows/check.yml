@@ -6,7 +6,7 @@ on:
 name: check
 
 jobs:
-  deploy:
+  check:
     runs-on: macOS-latest
     steps:
       - name: Checkout repo
