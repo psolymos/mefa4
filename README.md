@@ -1,7 +1,7 @@
 # mefa4: multivariate data handling with S4 classes and sparse matrices
 
-[![CRAN version](http://www.r-pkg.org/badges/version/mefa4)](http://cran.rstudio.com/web/packages/mefa4/index.html)
-[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/grand-total/mefa4)](http://cran.rstudio.com/web/packages/mefa4/index.html)
+[![CRAN version](https://www.r-pkg.org/badges/version/mefa4)](https://cran.rstudio.com/web/packages/mefa4/index.html)
+[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/grand-total/mefa4)](https://cran.rstudio.com/web/packages/mefa4/index.html)
 [![check](https://github.com/psolymos/mefa4/actions/workflows/check.yml/badge.svg)](https://github.com/psolymos/mefa4/actions/workflows/check.yml)
 
 An S4 update of the mefa package using sparse matrices for enhanced efficiency.

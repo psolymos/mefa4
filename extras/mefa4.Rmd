@@ -348,7 +348,7 @@ mbind(Mefa(x, sampx), Mefa(y, sampy, taxay))
 
 We compare the performance of the **mefa** and **mefa4**
 packages. We are using a long formatted raw data file from the Alberta
-Biodiversity Monitoring Institute database (available at [http://www.abmi.ca](http://www.abmi.ca)):
+Biodiversity Monitoring Institute database (available at [https://www.abmi.ca](https://www.abmi.ca)):
 
 ```{r}
 library(mefa)

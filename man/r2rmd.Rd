@@ -36,7 +36,7 @@ The leading double hash \code{##} is trimmed for comment lines.
 R markdown chunk start/end stuff is added for code chunks.
 The argument \code{extra} adds chunk arguments, e.g. 
 \code{extra=', eval=FALSE'} etc. See R markdown website at 
-\url{http://rmarkdown.rstudio.com/}
+\url{https://rmarkdown.rstudio.com/}
 }
 \value{
 Returns a character vector invisibly, and writes a file as a side effects 
@@ -46,7 +46,7 @@ unless \code{out=NULL} in which case no file is written.
 Peter Solymos <solymos@ualberta.ca>
 }
 \seealso{
-\url{http://rmarkdown.rstudio.com/}
+\url{https://rmarkdown.rstudio.com/}
 }
 \examples{
 \dontrun{

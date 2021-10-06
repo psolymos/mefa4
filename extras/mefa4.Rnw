@@ -332,7 +332,7 @@ mbind(Mefa(x, sampx), Mefa(y, sampy, taxay))
 
 We compare the performance of the \pkg{mefa} and \pkg{mefa4}
 packages. We are using a long formatted raw data file from the Alberta
-Biodiversity Monitoring Institute database (available at \href{http://www.abmi.ca}{http://www.abmi.ca}):
+Biodiversity Monitoring Institute database (available at \href{https://www.abmi.ca}{https://www.abmi.ca}):
 <<>>=
 data(abmibirds)
 @

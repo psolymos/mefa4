@@ -6,7 +6,7 @@ Raw Dataset of Bird Point Counts
 }
 \description{
 A data set of bird point counts collected by the Alberta
-Biodiversity Monitoring Institute (ABMI, http://www.abmi.ca).
+Biodiversity Monitoring Institute (ABMI, https://www.abmi.ca).
 }
 \usage{data(abmibirds)}
 \format{
@@ -50,7 +50,7 @@ Biodiversity Monitoring Institute (ABMI, http://www.abmi.ca).
       unique identifier of bird species detected during point
       count. Unique taxonomic identifiers are generally taken from the
       International Taxonomic Information System
-      (ITIS; \url{http://www.itis.gov/}).}
+      (ITIS; \url{https://www.itis.gov/}).}
     \item{\code{Taxonomic.Resolution}}{a factor. Resolution to which bird
       species was identified (e.g. Family, Genus, Species etc.).}
     \item{\code{Time.First.Detected}}{a factor. Approximate time the bird
@@ -143,12 +143,12 @@ identified. Some possible reasons that identification was not possible include i
 sample collected and lack of field time.
 }
 \source{
-RAW_T26BreedingBirds28621.csv, http://www.abmi.ca
+RAW_T26BreedingBirds28621.csv, https://www.abmi.ca
 }
 \references{
 Raw breeding bird data (2004--2006 inclusive) from the Alberta Biodiversity Monitoring
 Institute was used, in whole or part, to create this product. More information on the Institute
-can be found at: http://www.abmi.ca
+can be found at: https://www.abmi.ca
 }
 \examples{
 data(abmibirds)
