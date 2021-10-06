@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,7 +41,6 @@
 
 <meta property="og:title" content="Utility functions for factors and compositional data — find_max" />
 <meta property="og:description" content="Utility functions for factors and compositional data." />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -65,7 +68,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -79,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mefa4</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3-7</span>
       </span>
     </div>
 
@@ -87,7 +90,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -100,8 +103,8 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/psolymos/mefa4">
-    <span class="fab fa fab fa-github fa-lg"></span>
+  <a href="https://github.com/psolymos/mefa4/">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -127,11 +130,11 @@
     <p>Utility functions for factors and compositional data.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>compare_sets</span>(<span class='no'>x</span>, <span class='no'>y</span>)
-<span class='fu'>find_max</span>(<span class='no'>x</span>)
-<span class='fu'>find_min</span>(<span class='no'>x</span>)
-<span class='fu'>reclass</span>(<span class='no'>x</span>, <span class='no'>map</span>, <span class='kw'>all</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>allow_NA</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-<span class='fu'>redistribute</span>(<span class='no'>x</span>, <span class='no'>source</span>, <span class='kw'>target</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>compare_sets</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span>
+<span class='fu'>find_max</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+<span class='fu'>find_min</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+<span class='fu'>reclass</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>map</span>, all <span class='op'>=</span> <span class='cn'>FALSE</span>, allow_NA <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+<span class='fu'>redistribute</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>source</span>, target <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -173,6 +176,9 @@ applied on the return object.</p></td>
 <p>A reclassified factor for <code>reclass</code>.</p>
 <p>A matrix for <code>redistribute</code> where the source column values are
 redistributed among the target columns proportionally.</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Peter Solymos &lt;solymos@ualberta.ca&gt;</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='https://rdrr.io/r/base/sets.html'>intersect</a></code>, <code><a href='https://rdrr.io/r/base/sets.html'>setdiff</a></code>,
@@ -180,13 +186,16 @@ redistributed among the target columns proportionally.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## numeric vector</span>
-<span class='fu'>compare_sets</span>(<span class='fl'>1</span>:<span class='fl'>10</span>, <span class='fl'>8</span>:<span class='fl'>15</span>)</div><div class='output co'>#&gt;        xlength ylength intersect union xbutnoty ybutnotx
+<span class='fu'>compare_sets</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='fl'>8</span><span class='op'>:</span><span class='fl'>15</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;        xlength ylength intersect union xbutnoty ybutnotx
 #&gt; labels      10       8         3    15        7        5
 #&gt; unique      10       8         3    15        7        5</div><div class='input'><span class='co'>## factor with 'zombie' labels</span>
-<span class='fu'>compare_sets</span>(<span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='fl'>1</span>:<span class='fl'>10</span>, <span class='kw'>levels</span><span class='kw'>=</span><span class='fl'>1</span>:<span class='fl'>10</span>), <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='fl'>8</span>:<span class='fl'>15</span>, <span class='kw'>levels</span><span class='kw'>=</span><span class='fl'>1</span>:<span class='fl'>15</span>))</div><div class='output co'>#&gt;        xlength ylength intersect union xbutnoty ybutnotx
+<span class='fu'>compare_sets</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, levels<span class='op'>=</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='fl'>8</span><span class='op'>:</span><span class='fl'>15</span>, levels<span class='op'>=</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>15</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;        xlength ylength intersect union xbutnoty ybutnotx
 #&gt; labels      10      15        10    15        0        5
 #&gt; unique      10       8         3    15        7        5</div><div class='input'>
-(<span class='no'>mat</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>10</span>*<span class='fl'>5</span>), <span class='fl'>10</span>, <span class='fl'>5</span>))</div><div class='output co'>#&gt;               [,1]        [,2]        [,3]       [,4]        [,5]
+<span class='op'>(</span><span class='va'>mat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>*</span><span class='fl'>5</span><span class='op'>)</span>, <span class='fl'>10</span>, <span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;               [,1]        [,2]        [,3]       [,4]        [,5]
 #&gt;  [1,] -1.400043517 -0.55369938  0.46815442  0.9353632  0.07003485
 #&gt;  [2,]  0.255317055  0.62898204  0.36295126  0.1764886 -0.63912332
 #&gt;  [3,] -2.437263611  2.06502490 -1.30454355  0.2436855 -0.04996490
@@ -196,7 +205,8 @@ redistributed among the target columns proportionally.</p>
 #&gt;  [7,] -1.821817661 -0.52201251 -0.93584735 -1.9100875  0.04653138
 #&gt;  [8,] -0.247325302 -0.05260191 -0.01595031 -0.2792372  0.57770907
 #&gt;  [9,] -0.244199607  0.54299634 -0.82678895 -0.3134460  0.11819487
-#&gt; [10,] -0.282705449 -0.91407483 -1.51239965  1.0673079 -1.91172049</div><div class='input'>(<span class='no'>m</span> <span class='kw'>&lt;-</span> <span class='fu'>find_max</span>(<span class='no'>mat</span>))</div><div class='output co'>#&gt;    index      value
+#&gt; [10,] -0.282705449 -0.91407483 -1.51239965  1.0673079 -1.91172049</div><div class='input'><span class='op'>(</span><span class='va'>m</span> <span class='op'>&lt;-</span> <span class='fu'>find_max</span><span class='op'>(</span><span class='va'>mat</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;    index      value
 #&gt; 1     X4 0.93536319
 #&gt; 2     X2 0.62898204
 #&gt; 3     X2 2.06502490
@@ -207,7 +217,9 @@ redistributed among the target columns proportionally.</p>
 #&gt; 8     X5 0.57770907
 #&gt; 9     X2 0.54299634
 #&gt; 10    X4 1.06730788</div><div class='input'><span class='co'>## column indices</span>
-<span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span>(<span class='no'>m</span>$<span class='no'>index</span>)</div><div class='output co'>#&gt;  [1] 4 2 2 4 3 5 5 5 2 4</div><div class='input'><span class='fu'>find_min</span>(<span class='no'>mat</span>)</div><div class='output co'>#&gt;    index      value
+<span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span><span class='op'>(</span><span class='va'>m</span><span class='op'>$</span><span class='va'>index</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1] 4 2 2 4 3 5 5 5 2 4</div><div class='input'><span class='fu'>find_min</span><span class='op'>(</span><span class='va'>mat</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;    index      value
 #&gt; 1     X1 -1.4000435
 #&gt; 2     X5 -0.6391233
 #&gt; 3     X1 -2.4372636
@@ -218,12 +230,13 @@ redistributed among the target columns proportionally.</p>
 #&gt; 8     X4 -0.2792372
 #&gt; 9     X3 -0.8267890
 #&gt; 10    X5 -1.9117205</div><div class='input'>
-<span class='no'>map</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"a"</span>,<span class='st'>"b"</span>,<span class='st'>"c"</span>,<span class='st'>"d"</span>,<span class='st'>"e"</span>,<span class='st'>"f"</span>,<span class='st'>"g"</span>),
-             <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"A"</span>,<span class='st'>"B"</span>,<span class='st'>"B"</span>,<span class='st'>"C"</span>,<span class='st'>"D"</span>,<span class='st'>"D"</span>,<span class='st'>"E"</span>))
+<span class='va'>map</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a"</span>,<span class='st'>"b"</span>,<span class='st'>"c"</span>,<span class='st'>"d"</span>,<span class='st'>"e"</span>,<span class='st'>"f"</span>,<span class='st'>"g"</span><span class='op'>)</span>,
+             <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"A"</span>,<span class='st'>"B"</span>,<span class='st'>"B"</span>,<span class='st'>"C"</span>,<span class='st'>"D"</span>,<span class='st'>"D"</span>,<span class='st'>"E"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='co'>#x &lt;- factor(sample(map[1:6,1], 100, replace=TRUE), levels=map[,1])</span>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='no'>map</span>[<span class='fl'>1</span>:<span class='fl'>6</span>,<span class='fl'>1</span>], <span class='fl'>100</span>, <span class='kw'>replace</span><span class='kw'>=</span><span class='fl'>TRUE</span>))
-<span class='no'>x</span>[<span class='fl'>2</span>] <span class='kw'>&lt;-</span> <span class='fl'>NA</span>
-<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>x</span>, <span class='fu'>reclass</span>(<span class='no'>x</span>, <span class='no'>map</span>, <span class='kw'>all</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>), <span class='kw'>useNA</span><span class='kw'>=</span><span class='st'>"always"</span>)</div><div class='output co'>#&gt;       
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>map</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>6</span>,<span class='fl'>1</span><span class='op'>]</span>, <span class='fl'>100</span>, replace<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>x</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='cn'>NA</span>
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='fu'>reclass</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>map</span>, all <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>, useNA<span class='op'>=</span><span class='st'>"always"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;       
 #&gt; x       A  B  C  D &lt;NA&gt;
 #&gt;   a    20  0  0  0    0
 #&gt;   b     0 17  0  0    0
@@ -231,7 +244,8 @@ redistributed among the target columns proportionally.</p>
 #&gt;   d     0  0 18  0    0
 #&gt;   e     0  0  0 18    0
 #&gt;   f     0  0  0 10    0
-#&gt;   &lt;NA&gt;  0  0  0  0    1</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>x</span>, <span class='fu'>reclass</span>(<span class='no'>x</span>, <span class='no'>map</span>, <span class='kw'>all</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>), <span class='kw'>useNA</span><span class='kw'>=</span><span class='st'>"always"</span>)</div><div class='output co'>#&gt;       
+#&gt;   &lt;NA&gt;  0  0  0  0    1</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='fu'>reclass</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>map</span>, all <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>, useNA<span class='op'>=</span><span class='st'>"always"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;       
 #&gt; x       A  B  C  D  E &lt;NA&gt;
 #&gt;   a    20  0  0  0  0    0
 #&gt;   b     0 17  0  0  0    0
@@ -240,8 +254,9 @@ redistributed among the target columns proportionally.</p>
 #&gt;   e     0  0  0 18  0    0
 #&gt;   f     0  0  0 10  0    0
 #&gt;   &lt;NA&gt;  0  0  0  0  0    1</div><div class='input'>
-<span class='no'>map</span>[<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>4</span>, <span class='fl'>7</span>), <span class='fl'>2</span>] <span class='kw'>&lt;-</span> <span class='fl'>NA</span>
-<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>x</span>, <span class='fu'>reclass</span>(<span class='no'>x</span>, <span class='no'>map</span>, <span class='kw'>all</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>allow_NA</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>), <span class='kw'>useNA</span><span class='kw'>=</span><span class='st'>"always"</span>)</div><div class='output co'>#&gt;       
+<span class='va'>map</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>4</span>, <span class='fl'>7</span><span class='op'>)</span>, <span class='fl'>2</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='cn'>NA</span>
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='fu'>reclass</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>map</span>, all <span class='op'>=</span> <span class='cn'>FALSE</span>, allow_NA <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>, useNA<span class='op'>=</span><span class='st'>"always"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;       
 #&gt; x       A  B  D &lt;NA&gt;
 #&gt;   a    20  0  0    0
 #&gt;   b     0 17  0    0
@@ -249,7 +264,8 @@ redistributed among the target columns proportionally.</p>
 #&gt;   d     0  0  0   18
 #&gt;   e     0  0 18    0
 #&gt;   f     0  0 10    0
-#&gt;   &lt;NA&gt;  0  0  0    1</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>x</span>, <span class='fu'>reclass</span>(<span class='no'>x</span>, <span class='no'>map</span>, <span class='kw'>all</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>allow_NA</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>), <span class='kw'>useNA</span><span class='kw'>=</span><span class='st'>"always"</span>)</div><div class='output co'>#&gt;       
+#&gt;   &lt;NA&gt;  0  0  0    1</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='fu'>reclass</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>map</span>, all <span class='op'>=</span> <span class='cn'>TRUE</span>, allow_NA <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>, useNA<span class='op'>=</span><span class='st'>"always"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;       
 #&gt; x       A  B  D &lt;NA&gt;
 #&gt;   a    20  0  0    0
 #&gt;   b     0 17  0    0
@@ -258,7 +274,8 @@ redistributed among the target columns proportionally.</p>
 #&gt;   e     0  0 18    0
 #&gt;   f     0  0 10    0
 #&gt;   &lt;NA&gt;  0  0  0    1</div><div class='input'>
-(<span class='no'>mat2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span>(<span class='no'>mat</span>) / <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>rowSums</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span>(<span class='no'>mat</span>)))</div><div class='output co'>#&gt;              [,1]        [,2]       [,3]       [,4]       [,5]
+<span class='op'>(</span><span class='va'>mat2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='va'>mat</span><span class='op'>)</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>rowSums</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='va'>mat</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;              [,1]        [,2]       [,3]       [,4]       [,5]
 #&gt;  [1,] 0.040831390 0.095182422 0.26444918 0.42193778 0.17759923
 #&gt;  [2,] 0.204093071 0.296557494 0.22728627 0.18862250 0.08344066
 #&gt;  [3,] 0.008346517 0.753050903 0.02590833 0.12185032 0.09084393
@@ -268,7 +285,8 @@ redistributed among the target columns proportionally.</p>
 #&gt;  [7,] 0.069027282 0.253232229 0.16741439 0.06319543 0.44713066
 #&gt;  [8,] 0.148679922 0.180642369 0.18738603 0.14401016 0.33928152
 #&gt;  [9,] 0.163250927 0.358699287 0.09116756 0.15232891 0.23455332
-#&gt; [10,] 0.170130393 0.090486058 0.04974306 0.65627407 0.03336642</div><div class='input'>(<span class='no'>rmat2</span> <span class='kw'>&lt;-</span> <span class='fu'>redistribute</span>(<span class='no'>mat2</span>, <span class='kw'>source</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>target</span> <span class='kw'>=</span> <span class='fl'>2</span>:<span class='fl'>4</span>))</div><div class='output co'>#&gt;       [,1]       [,2]       [,3]      [,4]       [,5]
+#&gt; [10,] 0.170130393 0.090486058 0.04974306 0.65627407 0.03336642</div><div class='input'><span class='op'>(</span><span class='va'>rmat2</span> <span class='op'>&lt;-</span> <span class='fu'>redistribute</span><span class='op'>(</span><span class='va'>mat2</span>, source <span class='op'>=</span> <span class='fl'>1</span>, target <span class='op'>=</span> <span class='fl'>2</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;       [,1]       [,2]       [,3]      [,4]       [,5]
 #&gt;  [1,]    0 0.10015502 0.27826475 0.4439810 0.17759923
 #&gt;  [2,]    0 0.38150935 0.29239469 0.2426553 0.08344066
 #&gt;  [3,]    0 0.76002835 0.02614838 0.1229793 0.09084393
@@ -278,19 +296,16 @@ redistributed among the target columns proportionally.</p>
 #&gt;  [7,]    0 0.28935958 0.19129855 0.0722112 0.44713066
 #&gt;  [8,]    0 0.23309524 0.24179705 0.1858262 0.33928152
 #&gt;  [9,]    0 0.45594008 0.11588242 0.1936242 0.23455332
-#&gt; [10,]    0 0.10981357 0.06036801 0.7964520 0.03336642</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>colMeans</a></span>(<span class='no'>mat2</span>)</div><div class='output co'>#&gt; [1] 0.1209979 0.2186965 0.1801568 0.2432904 0.2368584</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>colMeans</a></span>(<span class='no'>rmat2</span>)</div><div class='output co'>#&gt; [1] 0.0000000 0.2529848 0.2198410 0.2903158 0.2368584</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>abs</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>(<span class='no'>mat2</span>) - <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>(<span class='no'>rmat2</span>)) <span class='kw'>&lt;</span> <span class='fl'>10</span>^-<span class='fl'>6</span>)</div></pre>
-  </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#see-also">See also</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+#&gt; [10,]    0 0.10981357 0.06036801 0.7964520 0.03336642</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>colMeans</a></span><span class='op'>(</span><span class='va'>mat2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 0.1209979 0.2186965 0.1801568 0.2432904 0.2368584</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>colMeans</a></span><span class='op'>(</span><span class='va'>rmat2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 0.0000000 0.2529848 0.2198410 0.2903158 0.2368584</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>abs</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>mat2</span><span class='op'>)</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>rmat2</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>&lt;</span> <span class='fl'>10</span><span class='op'>^</span><span class='op'>-</span><span class='fl'>6</span><span class='op'>)</span>
 
-    <h2>Author</h2>
-    <p>Peter Solymos &lt;solymos@ualberta.ca&gt;</p>
+</div></pre>
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -301,7 +316,7 @@ redistributed among the target columns proportionally.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
