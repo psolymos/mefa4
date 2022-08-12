@@ -4,15 +4,18 @@ function(x)
     if (inherits(x, "Mefa"))
         x <- x@xtab
     if (inherits(x, "mefa"))
-        x <- as(x$xtab, "dgCMatrix")
+        # x <- as(x$xtab, "dgCMatrix")
+        x <- as(as(as(x$xtab, "dMatrix"), "generalMatrix"), "CsparseMatrix")
     if (inherits(x, "matrix"))
-        x <- as(x, "dgCMatrix")
+        # x <- as(x, "dgCMatrix")
+        x <- as(as(as(x, "dMatrix"), "generalMatrix"), "CsparseMatrix")
     if (inherits(x, "sparseMatrix")) {
         if (is.null(rownames(x)))
             stop("missing row names")
         if (is.null(colnames(x)))
             stop("missing column names")
-        x <- as(x, "dgTMatrix")
+        # x <- as(x, "dgTMatrix")
+        x <- as(as(as(x, "dMatrix"), "generalMatrix"), "TsparseMatrix")
         rows <- x@i + 1L
         cols <- x@j + 1L
         y <- x@x
@@ -30,7 +33,8 @@ function(x)
         n <- length(x)
         X <- rows <- cols <- y <- vector("list", n)
         for (k in 1:n) {
-            X[[k]] <- as(x[[k]], "dgTMatrix")
+            # X[[k]] <- as(x[[k]], "dgTMatrix")
+            X[[k]] <- as(as(as(x[[k]], "dMatrix"), "generalMatrix"), "TsparseMatrix")
             rows[[k]] <- X[[k]]@i + 1L
             cols[[k]] <- X[[k]]@j + 1L
             y[[k]] <- X[[k]]@x

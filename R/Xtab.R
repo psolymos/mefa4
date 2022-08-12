@@ -50,12 +50,12 @@ subset, na.action, exclude = c(NA, NaN), drop.unused.levels = FALSE)
     if (!is.numeric(y))
         stop("lhs of formula not numeric")
     ## this is how it is constructed, then converted into dgCMatrix
-    out <- as(new("dgTMatrix",
+    out <- as(as(as(new("dgTMatrix",
         i = as.integer(rows) - 1L,
         j = as.integer(cols) - 1L,
         x = as.double(y),
         Dim = c(length(rl), length(cl)),
-        Dimnames = list(rl, cl)), "CsparseMatrix")
+        Dimnames = list(rl, cl)), "dMatrix"), "generalMatrix"), "CsparseMatrix")
     rkeep <- 1:nrow(out)
     ckeep <- 1:ncol(out)
     if (!missing(rdrop)) {
@@ -81,7 +81,8 @@ subset, na.action, exclude = c(NA, NaN), drop.unused.levels = FALSE)
     if (length(by) == 2) {
         out <- out[rkeep, ckeep, drop=FALSE]
         out <- drop0(out)
-        out <- as(out, "dgCMatrix")
+        # out <- as(out, "dgCMatrix")
+        out <- as(as(as(out, "dMatrix"), "generalMatrix"), "CsparseMatrix")
     }
     if (length(by) == 3) {
         segm <- by[[3]]

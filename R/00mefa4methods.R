@@ -21,7 +21,8 @@ setGeneric("taxa<-", function(x, value) standardGeneric("taxa<-"))
 
 setReplaceMethod("xtab", signature(x = "Mefa", value = "MefaMatrix"),
     function(x, value) {
-        value <- as(value, "dgCMatrix")
+        # value <- as(value, "dgCMatrix")
+        value <- as(as(as(value, "dMatrix"), "generalMatrix"), "CsparseMatrix")
         if (x@join == "left") {
             rkeep <- rownames(value)
             ckeep <- colnames(value)

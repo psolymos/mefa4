@@ -42,7 +42,8 @@ join = c("left", "inner"), drop = FALSE) {
         taxa[] <- lapply(taxa, function(z) z[drop = TRUE])
     }
     new("Mefa",
-        xtab = as(xtab, "dgCMatrix"),
+        # xtab = as(xtab, "dgCMatrix"),
+        xtab = as(as(as(xtab, "dMatrix"), "generalMatrix"), "CsparseMatrix"),
         samp = samp, taxa = taxa,
         join = join)
 }

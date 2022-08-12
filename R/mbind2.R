@@ -27,7 +27,8 @@ setMethod("mbind2", signature(x="sparseMatrix", y="sparseMatrix", fill="ANY"),
             length(rn), length(cn),
             dimnames=list(rn, cn),
             sparse=TRUE)
-        out <- as(out, "dgCMatrix")
+        # out <- as(out, "dgCMatrix")
+        out <- as(as(as(out, "dMatrix"), "generalMatrix"), "CsparseMatrix")
         out[rownames(x), colnames(x)] <- x
         out[rownames(y), colnames(y)] <- y
         out[rn0, cn0] <- x[rn0, cn0] + y[rn0, cn0]

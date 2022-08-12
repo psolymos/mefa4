@@ -8,7 +8,8 @@ f1 <- function(z, s, gr=10, gc=10, what=1) {
     x <- array(runif(prod(d), 0.001, 1), d)
     s <- sample.int(prod(d), floor(prod(d)*s))
     x[s] <- 0
-    xx <- as(x, "dgCMatrix")
+    # xx <- as(x, "dgCMatrix")
+    xx <- as(as(as(x, "dMatrix"), "generalMatrix"), "CsparseMatrix")
     if (what==1) {
         t1 <- system.time(groupSums(xx, 1, ir))["elapsed"]
         t2 <- system.time(aggregate(x, list(ir), sum))["elapsed"]

@@ -1,3 +1,7 @@
+# Version 0.3-9 -- Aug 12, 2022
+
+* Addressing Matrix 1.4-2 deprecation issue.
+
 # Version 0.3-8 -- Oct 6, 2021
 
 * Use DOI to JSS article instead of URL.
