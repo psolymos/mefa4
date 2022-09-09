@@ -6,7 +6,7 @@
 }
 
 .onLoad <- function(libname, pkgname) {
-    options(Matrix.warnDeprecatedCoerce = 1L)
+    #options(Matrix.warnDeprecatedCoerce = 2L)
     invisible(NULL)
 }
 
