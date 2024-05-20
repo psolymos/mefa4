@@ -19,7 +19,7 @@ an output file name passed to \code{\link{writeLines}},
 or \code{NULL} (no file written).
 }
   \item{header}{
-logical, if a yaml header (enclosed between tribple dashes, \code{---})
+logical, if a yaml header (enclosed between triple dashes, \code{---})
 is to be parsed.
 }
   \item{extra}{
