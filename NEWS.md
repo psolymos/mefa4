@@ -1,4 +1,4 @@
-# Version 0.3-11 -- May 19, 2024
+# Version 0.3-11 -- May 20, 2024
 
 * Use `bibentry` in `CITATION`.
 

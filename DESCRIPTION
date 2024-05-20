@@ -2,7 +2,7 @@ Package: mefa4
 Type: Package
 Title: Multivariate Data Handling with S4 Classes and Sparse Matrices
 Version: 0.3-11
-Date: 2024-05-19
+Date: 2024-05-20
 Author: Peter Solymos
 Maintainer: Peter Solymos <psolymos@gmail.com>
 Description: An S4 update of the 'mefa' package
