@@ -1,3 +1,7 @@
+# Version 0.3-10 -- May 19, 2024
+
+* Maintainer email changed to personal email.
+
 # Version 0.3-9 -- Sep 8, 2022
 
 * Addressing Matrix 1.5-0 deprecation issue.
