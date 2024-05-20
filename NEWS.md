@@ -1,3 +1,7 @@
+# Version 0.3-11 -- May 19, 2024
+
+* Use `bibentry` in `CITATION`.
+
 # Version 0.3-10 -- May 19, 2024
 
 * Maintainer email changed to personal email.
