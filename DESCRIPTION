@@ -3,7 +3,7 @@ Type: Package
 Title: Multivariate Data Handling with S4 Classes and Sparse Matrices
 Version: 0.3-11
 Date: 2024-05-20
-Author: Peter Solymos
+Author: Peter Solymos [cre, aut] (<https://orcid.org/0000-0001-7337-1740>)
 Maintainer: Peter Solymos <psolymos@gmail.com>
 Description: An S4 update of the 'mefa' package
   using sparse matrices for enhanced efficiency.
