@@ -40,7 +40,7 @@ The function creates two- or three-way cross tabulation. Only works for two or t
 If a left hand side is given in formula, its entries are simply summed over the cells corresponding to the right hand side; this also works if the left hand side does not give counts.
 }
 \value{
-A sparse numeric matrix inheriting from \code{\link{sparseMatrix}}, specifically an object of S4 class \code{dgCMatrix}.
+A sparse numeric matrix inheriting from \code{\link[Matrix]{sparseMatrix}}, specifically an object of S4 class \code{dgCMatrix}.
 
 For three factors, a list of sparse matrices.
 }
