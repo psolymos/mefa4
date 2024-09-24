@@ -1,57 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Mefa.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Melt.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Xtab.html</loc>
-  </url>
-  <url>
-    <loc>/reference/abmibirds.html</loc>
-  </url>
-  <url>
-    <loc>/reference/find_max.html</loc>
-  </url>
-  <url>
-    <loc>/reference/groupSums.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mbind.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mefa4-package.html</loc>
-  </url>
-  <url>
-    <loc>/reference/nameAlnum.html</loc>
-  </url>
-  <url>
-    <loc>/reference/nonDuplicated.html</loc>
-  </url>
-  <url>
-    <loc>/reference/notin.html</loc>
-  </url>
-  <url>
-    <loc>/reference/r2rmd.html</loc>
-  </url>
-  <url>
-    <loc>/reference/samp.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/news/index.html</loc></url>
+<url><loc>/reference/Mefa.html</loc></url>
+<url><loc>/reference/Melt.html</loc></url>
+<url><loc>/reference/Xtab.html</loc></url>
+<url><loc>/reference/abmibirds.html</loc></url>
+<url><loc>/reference/find_max.html</loc></url>
+<url><loc>/reference/groupSums.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/mbind.html</loc></url>
+<url><loc>/reference/mefa4-package.html</loc></url>
+<url><loc>/reference/nameAlnum.html</loc></url>
+<url><loc>/reference/nonDuplicated.html</loc></url>
+<url><loc>/reference/notin.html</loc></url>
+<url><loc>/reference/r2rmd.html</loc></url>
+<url><loc>/reference/samp.html</loc></url>
 </urlset>
+
