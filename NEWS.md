@@ -1,6 +1,7 @@
 # Version 0.3-12 -- July 12, 2025
 
 * Add `Authors@R` field in `DESCRIPTION`.
+* Fix documentation.
 
 # Version 0.3-11 -- May 20, 2024
 
